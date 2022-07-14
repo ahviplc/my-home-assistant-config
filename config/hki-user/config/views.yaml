@@ -1,10 +1,10 @@
 views: # NEVER REMOVE THIS LINE
 
-# Default views (you can edit them!)
+  # Default views (you can edit them!)
 
-# ================================================================================================================================================================
-# 这是主页
-# Home
+  # ================================================================================================================================================================
+  # 这是主页
+  # Home
   home:
     title: 主页
     show_in_navbar: true
@@ -12,8 +12,8 @@ views: # NEVER REMOVE THIS LINE
     show_in_favorites: false
     icon: mdi:home
     addons:
-#      welcome_message:
-#        - title: hide
+      #      welcome_message:
+      #        - title: hide
       favorites:
         - title: Favorites
           show_title: true
@@ -21,8 +21,8 @@ views: # NEVER REMOVE THIS LINE
       menu:
         - title: Menu
 
-# 这是导航菜单页
-# Menu
+  # 这是导航菜单页
+  # Menu
   menu:
     title: 导航菜单
     show_in_navbar: true
@@ -36,25 +36,25 @@ views: # NEVER REMOVE THIS LINE
       menu:
         - title: Menu
 
-# Add your own views below this line!
+  # Add your own views below this line!
 
-# ================================================================================================================================================================
-# Lights库 这是灯光库 一些灯的聚集地 灯光控制
-# ===================================================
-# subtitle: "[[[ if (states['sensor.current_lights_on'].state == 0) return `All lights are turned off`; if (states['sensor.current_lights_on'].state == 1) return `1 light is turned on`; else return `${states['sensor.current_lights_on'].state} lights are turned on`; ]]]"
-# ===================================================
-# type: color-temp | rgb | cover | switch | graph
-# ===================================================
-# Lights (example)
+  # ================================================================================================================================================================
+  # Lights库 这是灯光库 一些灯的聚集地 灯光控制
+  # ===================================================
+  # subtitle: "[[[ if (states['sensor.current_lights_on'].state == 0) return `All lights are turned off`; if (states['sensor.current_lights_on'].state == 1) return `1 light is turned on`; else return `${states['sensor.current_lights_on'].state} lights are turned on`; ]]]"
+  # ===================================================
+  # type: color-temp | rgb | cover | switch | graph
+  # ===================================================
+  # Lights (example)
   lights:
     title: 灯光控制
     show_in_navbar: false
     show_in_menu: true
     show_in_favorites: true
-    subtitle: "[[[ if (states['sensor.current_lights_on'].state == 0) return `灯均已关闭。`; 
-    if (states['sensor.current_lights_on'].state == 1) return `有一盏灯打开。`; 
+    subtitle: "[[[ if (states['sensor.current_lights_on'].state == 0) return `灯均已关闭。`;
+    if (states['sensor.current_lights_on'].state == 1) return `有一盏灯打开。`;
     else return `当前有 ${states['sensor.current_lights_on'].state} 盏灯开启。`; ]]]"
-    columns: 
+    columns:
       buttons: 3
       view_selector: 2
     icon: mdi:lightbulb-group-outline
@@ -106,16 +106,16 @@ views: # NEVER REMOVE THIS LINE
             - entity: switch.212a01_cloud_873391
               name: 阳台沙发灯
 
-# ================================================================================================================================================================
-# 网络设备状态
-# Network_Status
+  # ================================================================================================================================================================
+  # 网络设备状态
+  # Network_Status
   network_status:
     title: 网络&网关
     show_in_navbar: false
     show_in_menu: true
     show_in_favorites: false
     subtitle: "[[[ return `路由器当前下行速率为 ${states['sensor.redmi_ac2100_wireless_router_kib_s_received'].state} KiB/s，上行速率为 ${states['sensor.redmi_ac2100_wireless_router_kib_s_sent'].state} KiB/s。`; ]]]"
-    columns: 
+    columns:
       buttons: 3
     icon: mdi:lan
     layout:
@@ -128,9 +128,9 @@ views: # NEVER REMOVE THIS LINE
       position: top
       type: default
 
-# ================================================================================================================================================================
-# 天气预报
-# Weather
+  # ================================================================================================================================================================
+  # 天气预报
+  # Weather
   weather:
     title: 天气预报
     show_in_navbar: false
@@ -138,16 +138,9 @@ views: # NEVER REMOVE THIS LINE
     show_in_favorites: true
     subtitle: "[[[ return `${states['weather.lcde_jia'].state}`; ]]]"
     button_badge: weather.lcde_jia
-    columns: 
+    columns:
       buttons: 3
     icon: mdi:weather-partly-cloudy
-    addons:
-      weather:
-        - title: 天气预报
-          type: core
-          entity: weather.lcde_jia
-          show_forecast: true
-          path: weather
     layout:
       layout_type: custom:horizontal-layout
       options:
@@ -157,17 +150,24 @@ views: # NEVER REMOVE THIS LINE
     custom_cards:
       position: top
       type: default
+    addons:
+      weather:
+        - title: 天气预报
+          type: core
+          entity: weather.lcde_jia
+          show_forecast: true
+          path: weather
 
-# ================================================================================================================================================================
-# 气候 使用了 sensor传感器 插件
-# Climate
+  # ================================================================================================================================================================
+  # 气候 使用了 sensor传感器 插件
+  # Climate
   climate:
     title: 气候
     show_in_navbar: false
     show_in_menu: true
     show_in_favorites: false
     subtitle: "[[[ return `当前客厅温度 ${states['sensor.t2_cloud_c0lo00_temperature'].state}°C 当前客厅湿度 ${states['sensor.t2_cloud_c0lo00_humidity'].state}% 当前客厅湿温度计电池电量 ${states['sensor.t2_cloud_c0lo00_level'].state}%` ]]]"
-    columns: 
+    columns:
       buttons: 3
       view_selector: 2
     icon: mdi:thermometer
@@ -197,26 +197,17 @@ views: # NEVER REMOVE THIS LINE
             - entity: sensor.t2_cloud_c0lo00_level
               name: 客厅湿温度计电池电量
               line_color: red
-    layout:
-      layout_type: custom:horizontal-layout
-      options:
-        - max_cols: 3
-          max_width: 500
-          width: 300
-    custom_cards:
-      position: top
-      type: default
 
-# ================================================================================================================================================================
-# 电池 一些设备的电池电量汇总
-# Battery
+  # ================================================================================================================================================================
+  # 电池 一些设备的电池电量汇总
+  # Battery
   battery:
     title: 电池
     show_in_navbar: false
     show_in_menu: true
     show_in_favorites: true
     subtitle: "[[[ return `一些设备的电池电量` ]]]"
-    columns: 
+    columns:
       buttons: 3
       view_selector: 2
     icon: mdi:battery
@@ -245,26 +236,17 @@ views: # NEVER REMOVE THIS LINE
               name: iPhone电池电量
             - entity: sensor.dw2hl_cloud_t85c00_level
               name: 小米门窗传感器 faker门锁
-    layout:
-      layout_type: custom:horizontal-layout
-      options:
-        - max_cols: 3
-          max_width: 500
-          width: 300
-    custom_cards:
-      position: top
-      type: default
 
-# ================================================================================================================================================================
-# 摄像头 安全security监控
-# Camera
+  # ================================================================================================================================================================
+  # 摄像头 安全security监控
+  # Camera
   security:
     title: 摄像头
     show_in_navbar: false
     show_in_menu: true
     show_in_favorites: true
     subtitle: "[[[ return `一些监控设备` ]]]"
-    columns: 
+    columns:
       buttons: 3
       view_selector: 2
     icon: mdi:cctv
@@ -286,29 +268,20 @@ views: # NEVER REMOVE THIS LINE
           columns: 3
           entities:
             - entity: camera.192_168_5_37
-#              name: 客厅摄像头1 # 这个没有name属性 留着是出于备注的目的
+              # name: 客厅摄像头1 # 这个没有name属性 留着是出于备注的目的
               camera_view: auto
               show_state: true
         - title: LC在上海
           columns: 3
           entities:
             - entity: camera.192_168_5_37
-#              name: LC在上海摄像头1
+              # name: LC在上海摄像头1
               camera_view: live
               show_state: true
             - entity: camera.192_168_5_37
-#              name: LC在上海摄像头2
+              # name: LC在上海摄像头2
               camera_view: false # 默认不启用 false 可选 auto | live
               show_state: true
-    layout:
-      layout_type: custom:horizontal-layout
-      options:
-        - max_cols: 3
-          max_width: 500
-          width: 300
-    custom_cards:
-      position: top
-      type: default
 
 # ================================================================================================================================================================
 # 电视控制
