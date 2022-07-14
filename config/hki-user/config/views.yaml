@@ -205,7 +205,7 @@ views: # NEVER REMOVE THIS LINE
     title: 电池
     show_in_navbar: false
     show_in_menu: true
-    show_in_favorites: true
+    show_in_favorites: false
     subtitle: "[[[ return `一些设备的电池电量` ]]]"
     columns:
       buttons: 3
@@ -283,22 +283,96 @@ views: # NEVER REMOVE THIS LINE
               camera_view: false # 默认不启用 false 可选 auto | live
               show_state: true
 
-# ================================================================================================================================================================
-# 电视控制
-# TODO1
-# 其他待做
+  # ================================================================================================================================================================
+  # 门窗传感器 Door and window sensor 监听门窗的开与关
+  # Door and window sensor
+  DoorAndWindow:
+    title: 门窗传感器
+    show_in_navbar: false
+    show_in_menu: true
+    show_in_favorites: true
+    subtitle: "[[[ return `一些门窗传感器 小提示 如果门窗处于开启的状态 下面的按钮的图标会是已开启的门窗图标 否则是关闭的门窗图标` ]]]"
+    columns:
+      buttons: 3
+      view_selector: 2
+    icon: mdi:door
+    button_badge: binary_sensor.dw2hl_cloud_t85c00_state # 按钮徽章
+    button_label: "[[[ return `一些门窗传感器`; ]]]" # 按钮文本
+    layout:
+      layout_type: custom:horizontal-layout
+      options:
+        - max_cols: 3
+          max_width: 500
+          width: 300
+    custom_cards:
+      position: top
+      type: default
+    addons:
+      button:
+        - title: LC在上海 faker门锁
+          entities:
+            - entity: binary_sensor.dw2hl_cloud_t85c00_state
+              name: faker门锁
+              icon: "[[[ if (entity.state == 'on') return `mdi:door`; else return `mdi:door-open`; ]]]"
+              # button_label: "[[[ if (entity.state == 'on') return `已关闭`; else return `已打开`; ]]]"
+            - entity: sensor.dw2hl_cloud_t85c00_level
+              name: faker门锁电池电量
+              icon: mdi:battery
+              button_label: "[[[ return entity.state; ]]]"
+        - title: LC在安徽 窗户锁
+          entities:
+            - entity: binary_sensor.dw2hl_cloud_t85c00_state
+              name: 窗户锁
+              icon: "[[[ if (entity.state == 'on') return `mdi:window-closed-variant`; else return `mdi:window-open-variant`; ]]]"
+            - entity: sensor.dw2hl_cloud_t85c00_level
+              name: 窗户锁电池电量
+              icon: mdi:battery
+              button_label: "[[[ return entity.state; ]]]"
 
-# ================================================================================================================================================================
-# 门窗传感器
-# TODO2
-# 其他待做
+  # ================================================================================================================================================================
+  # 电视控制 红米电视 控制开关机 其实也就是个多媒体插件 目前操作的是 天猫精灵 和电视同理
+  # 填入错误的实体 media_player.wo_de_tian_mao_mo_he 其实就是天猫精灵 Android TV =  media_player.android_tv_192_168_5_84
+  # TV media 电视 音响 多媒体
+  TVs:
+    title: 多媒体
+    show_in_navbar: false
+    show_in_menu: true
+    show_in_favorites: true
+    subtitle: "[[[ return `一些多媒体 电视 音响 等` ]]]"
+    columns:
+      buttons: 3
+      view_selector: 2
+    icon: mdi:youtube-tv # mdi:remote-tv
+    button_badge: media_player.android_tv_192_168_5_84 # 按钮徽章
+    button_label: "[[[ return `一些多媒体 电视 音响`; ]]]" # 按钮文本
+    layout:
+      layout_type: custom:horizontal-layout
+      options:
+        - max_cols: 3
+          max_width: 500
+          width: 300
+    custom_cards:
+      position: top
+      type: default
+    addons:
+      remote_control:
+        - title: 多媒体远程控制 天猫精灵
+          media_player: media_player.android_tv_192_168_5_84
+          # sound_player: media_player.l05c_cloud_066435
+          sound_player: media_player.android_tv_192_168_5_84
+          remote_entity: media_player.android_tv_192_168_5_84
+      media_player:
+        - type: core
+          title: kodi media player in 天猫精灵
+          entities:
+            - media_player.kodi_in_android_tv
 
-# ================================================================================================================================================================
-# TODO3
-# 其他待做
+  # ================================================================================================================================================================
+  # TODO3
+  # 其他待做
 
-# ================================================================================================================================================================
-# TODO4
-# 其他待做
+  # ================================================================================================================================================================
+  # TODO4
+  # 其他待做
 
-# ================================================================================================================================================================
+  # ================================================================================================================================================================
