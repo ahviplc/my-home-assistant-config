@@ -1,0 +1,505 @@
+# lovelace_gen
+
+# Main // *Do NOT remove
+{% for name, data in _global.views.items() %}
+- path: {{ name }}
+  icon: {{ data.icon|default('mdi:home') }}
+  {% if data.visible is defined %}
+  visible: 
+    {% for userdata in data.visible %}
+    - {{ userdata|tojson }}
+    {% endfor %}
+  {% else %}
+  visible: {{ data.show_in_navbar|default('false') }}
+  {% endif %}
+  {% if data.title is defined %}
+  title: {{ data.title }}
+  {% else %}
+  title: {{ name|replace("_", " ")|title }}
+  {% endif %}
+  panel: true
+  cards:
+
+# Header // *Do NOT remove
+    - type: vertical-stack
+      cards:
+        {% if (data.show_header is undefined) or (data.show_header is not false) %}
+        - !include
+          - 'templates/header/header-base.yaml'
+          {% if (data.title == 'greeting') %}
+            {% raw %}
+          - title: "{{ states('sensor.greeting') }}"
+            {% endraw %}
+          {% elif data.logo is defined %}
+          - logo_image: {{ data.logo.image }}
+            logo_width: {{ data.logo.width|default('260px') }}
+            logo_height: {{ data.logo.height|default('60px') }}
+            logo_margin_top: {{ data.logo.margin_top|default('-10px') }}
+          {% elif data.title is defined %}
+          - title: {{ data.title }}
+          {% else %}
+          - title: {{ name|replace("_", " ")|title }}
+          {% endif %}
+            {% if data.subtitle is defined %}
+            icon: {{ data.icon|default('mdi:home') }}
+            name: {{ data.subtitle|tojson }}
+            entity: disabled
+            {% endif %}
+        {% endif %}
+
+# View Selector // *Can be removed
+        {% if data.view_selector is defined %}
+        - type: custom:layout-card
+          layout_type: custom:horizontal-layout
+          layout:
+            max_cols: 3
+            card_margin: 4px 8px 8px
+            margin: 0px 8px
+          cards:
+            - type: grid
+              columns: {{ data.view_selector.columns|default('4') }}
+              square: false
+              cards:
+                {% for config in data.view_selector.elements %}
+                - !include
+                  - templates/button/view-selector.yaml
+                  - navigation_path: {{ config.path }}
+                    {% if config.view_layout is defined %}
+                    view_layout:
+                      {{ config.view_layout|tojson }}
+                    {% endif %}
+                    {% if config.name is defined %}
+                    name: {{ config.name|tojson }}
+                    {% else %}
+                    show_name: false
+                    {% endif %}
+                    {% if config.icon is defined %}
+                    icon: {{ config.icon|tojson }}
+                    {% else %}
+                    show_icon: false
+                    {% endif %}
+                    {% if ((config.this_view is defined) and (config.this_view is true) and (config.button_badge is defined)) %} 
+                    template: view-selector-on-style-with-badge
+                    {% elif ((config.this_view is defined) and (config.this_view is true)) %} 
+                    template: view-selector-on-style
+                    {% elif config.button_badge is defined %} 
+                    template: view-selector-off-style-with-badge
+                    {% else %}
+                    template: view-selector-off-style
+                    {% endif %}
+                    {% if config.size is defined %}
+                    size: {{ config.size }}
+                    {% elif data.view_selector.size is defined %}
+                    size: {{ data.view_selector.size }}
+                    {% endif %}
+                    {% if config.aspect_ratio is defined %}
+                    aspect_ratio: {{ config.aspect_ratio }}
+                    {% elif data.view_selector.aspect_ratio is defined %}
+                    aspect_ratio: {{ data.view_selector.aspect_ratio }}
+                    {% endif %}
+                    {% if config.button_badge is defined %}
+                    notification: "[[[ if (states['{{ config.button_badge }}'].state == 0) return '&nbsp'; else return `${states['{{ config.button_badge }}'].state}`; ]]]"
+                    background_color: "[[[ if (states['{{ config.button_badge }}'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--badge-background-color)'; ]]]"   
+                    {% endif %}
+                    {% if config.tap_action is defined %}
+                    tap_action:
+                      {{ config.tap_action|tojson }}
+                    {% endif %}
+                    {% if config.hold_action is defined %}
+                    hold_action:
+                      {{ config.hold_action|tojson }}
+                    {% endif %}
+                    {% if config.double_tap_action is defined %}
+                    double_tap_action:
+                      {{ config.double_tap_action|tojson }}
+                    {% endif %}
+                {% endfor %}
+        {% endif %}
+
+# Layout // *Do NOT remove
+        {% if ((data.layout is defined) and (data.layout.layout_type != 'advanced') or (data.layout is undefined)) %}  
+        - type: custom:layout-card
+          {% if (( data.layout is defined) and (data.layout.layout_type is defined)) %}
+          layout_type: {{ data.layout.layout_type }}
+          {% else %}
+          layout_type: custom:masonry-layout
+          {% endif %}
+          {% if ((data.layout is defined) and (data.layout.layout is defined)) %}
+          layout:
+            {{ data.layout.layout|tojson }}
+          {% endif %}
+          cards:
+            {% if data.custom_legacy is defined %}
+            !include_dir_merge_list ../hki-user/custom_legacy/{{ name }}
+            {% endif %}
+        {% else %}
+        - type: vertical-stack
+          cards:
+            {% if data.custom_legacy is defined %}
+            !include_dir_merge_list ../hki-user/custom_legacy/{{ name }}
+            {% endif %}
+        {% endif %}
+
+# Addons // *Do NOT remove
+            {% if ((data.addons is defined) and (data.custom_legacy is undefined)) %}
+            {% for addon, content in data.addons.items() %}
+            {% for config in content %}
+
+            # Addons Title and Columns Template // *Do NOT remove
+            - type: conditional
+              {% if config.view_layout is defined %}
+              view_layout:
+                {{ config.view_layout|tojson }}
+              {% endif %}
+              conditions:
+                {% if config.conditional is true %}
+                {% for condition in config.conditions %}
+                - {{ condition|tojson }}
+                {% endfor %}
+                {% else %}
+                - entity: input_boolean.dummy1
+                  state_not: "nothing"
+                {% endif %}
+              card:
+                type: vertical-stack
+                cards:
+                  {% if ((config.title is defined) and (config.title != 'hide')) %}
+                  - !include
+                    - templates/titles/default.yaml
+                    - name: {{ config.title|tojson }}
+                  {% endif %}
+                  {% if ('picture_elements' in addon) or ('button' in addon) or ('camera' in addon) or ('thermostat' in addon) or ('battery' in addon) or ('favorites' in addon) or ('menu' in addon) or ('sensor' in addon) %}
+                  - type: grid
+                    {% if config.columns is defined %}
+                    columns: {{ config.columns }}
+                    {% elif ('camera' in addon) or ('picture_elements' in addon) %}
+                    columns: 1
+                    {% endif %}
+                    {% if config.square is defined %}
+                    square: {{ config.square }}
+                    {% elif ('camera' in addon) %}
+                    square: false
+                    {% endif %}
+                    cards:
+                  {% elif ('layout' in addon) %}
+                  {% if ((config.type is defined) and (config.type == 'break')) %}
+                  - type: custom:layout-break
+                  {% elif ((config.type is defined) and (config.type == 'gap')) %}
+                  - type: custom:gap-card
+                    {% if config.height is defined %}
+                    height: {{ config.height }}
+                    {% endif %}
+                    {% if config.size is defined %}
+                    size: {{ config.size }}
+                    {% endif %}
+                  {% endif %}
+                  {% else %}
+                  - type: vertical-stack
+                    cards:
+                  {% endif %}
+
+                      # Custom // *Do NOT remove
+                      {% if 'custom' in addon %}
+                      {% for card in config.cards %}
+                      - {{ card|tojson }}
+                      {% endfor %}
+                      {% endif %}
+
+                      # Welcome Message // *Can be removed
+                      {% if 'welcome_message' in addon %}
+                      - !include addons/welcome-message.yaml
+                      {% endif %}
+
+                      # Sensor // *Can be removed
+                      {% if 'sensor' in addon %}
+                      {% for sensor in config.entities %}
+                      - !include 
+                        - addons/sensor.yaml
+                        - sensor: {{ sensor|tojson }}
+                          config: {{ config|tojson }}
+                      {% endfor %}
+                      {% endif %}
+
+                      # Picture Elements // *Do NOT remove
+                      {% if 'picture_elements' in addon %}
+                      {% for card in config.cards %}
+                      - !include 
+                        - addons/picture-elements.yaml
+                        - card: {{ card|tojson }}
+                      {% endfor %}
+                      {% endif %}
+
+                      # Google // *Can be removed
+                      {% if 'google' in addon %}
+                      - !include 
+                        - addons/google.yaml
+                        - config: {{ config|tojson }}
+                      {% endif %}
+
+                      # Gauges // *Can be removed
+                      {% if 'gauge' in addon %}
+                      {% for gauge in config.entities %}
+                      - !include 
+                        - addons/gauge.yaml
+                        - gauge: {{ gauge|tojson }}
+                      {% endfor %}
+                      {% endif %}
+
+                      # Logbook // *Can be removed
+                      {% if 'logbook' in addon %}
+                      - !include 
+                        - addons/logbook.yaml
+                        - config: {{ config|tojson }}
+                      {% endif %}
+
+                      # Media Player // *Can be removed
+                      {% if 'media_player' in addon %}
+                      {% for media in config.entities %}
+                      - !include 
+                        - addons/media-player.yaml
+                        - media: {{ media|tojson }}
+                      {% endfor %}
+                      {% endif %}
+
+                      # Plant Status // *Can be removed
+                      {% if 'plant_status' in addon %}
+                      - !include 
+                        - addons/media-player.yaml
+                        - config: {{ config|tojson }}
+                      {% endif %}
+
+                      # Statistics // *Can be removed
+                      {% if 'statistics' in addon %}
+                      - !include 
+                        - addons/statistics.yaml
+                        - config: {{ config|tojson }}
+                      {% endif %}
+
+                      # History // *Can be removed
+                      {% if 'history' in addon %}
+                      - !include 
+                        - addons/history.yaml
+                        - config: {{ config|tojson }}
+                      {% endif %}
+
+                      # iFrame // *Can be removed
+                      {% if 'iframe' in addon %}
+                      - !include 
+                        - addons/iframe.yaml
+                        - config: {{ config|tojson }}
+                      {% endif %}
+
+                      # Energy Cards // *Can be removed
+                      {% if 'energy' in addon %}
+                      - !include 
+                        - addons/energy.yaml
+                        - config: {{ config|tojson }}
+                      {% endif %}
+
+                      # Remote Control // *Can be removed
+                      {% if 'remote_control' in addon %}
+                      - !include 
+                        - addons/remote-control.yaml
+                        - config: {{ config|tojson }}
+                      {% endif %}
+
+                      # Xbox Controller // *Can be removed
+                      {% if 'xbox' in addon %}
+                      - !include 
+                        - addons/xbox.yaml
+                        - config: {{ config|tojson }}
+                      {% endif %}
+
+                      # Sun Card // *Can be removed
+                      {% if 'sun_card' in addon %}
+                      - !include 
+                        - addons/sun-card.yaml
+                        - config: {{ config|tojson }}
+                      {% endif %}
+
+                      # Glances // *Can be removed
+                      {% if 'glance' in addon %}
+                      - !include 
+                        - addons/glance.yaml
+                        - config: {{ config|tojson }}
+                      {% endif %}
+
+                      # Air Visual // *Can be removed
+                      {% if 'air_visual' in addon %}
+                      - !include 
+                        - addons/air-visual.yaml
+                        - config: {{ config|tojson }}
+                      {% endif %}
+
+                      # Core Weather // *Can be removed
+                      {% if (('weather' in addon) and (config.type == 'core')) %}
+                      - !include 
+                        - addons/weather.yaml
+                        - config: {{ config|tojson }}
+                      {% endif %}
+
+                      # Meteo Alarm // *Can be removed
+                      {% if 'meteoalarm' in addon %}
+                      - !include 
+                        - addons/meteoalarm.yaml
+                        - config: {{ config|tojson }}
+                      {% endif %}
+
+                      # Plex // *Can be removed
+                      {% if 'plex' in addon %}
+                      - !include 
+                        - addons/plex.yaml
+                        - config: {{ config|tojson }}
+                      {% endif %}
+
+                      # Battery // *Can be removed
+                      {% if 'battery' in addon %}
+                      {% for device in config.entities %}
+                      - !include 
+                        - addons/battery.yaml
+                        - device: {{ device|tojson }}
+                      {% endfor %}
+                      {% endif %}
+
+                      # Upcoming Media Card // *Can be removed
+                      {% if 'upcoming_media' in addon %}
+                      - !include 
+                        - addons/upcoming-media.yaml
+                        - config: {{ config|tojson }}
+                      {% endif %}
+
+                      # Calendars // *Can be removed
+                      {% if 'calendar' in addon %}
+                      - !include 
+                        - addons/calendar.yaml
+                        - config: {{ config|tojson }}
+                      {% endif %}
+
+                      # Entities // *Can be removed
+                      {% if 'entities' in addon %}
+                      - !include 
+                        - addons/entities.yaml
+                        - config: {{ config|tojson }}
+                      {% endif %}
+
+                      # Maps // *Can be removed
+                      {% if 'map' in addon %}
+                      - !include 
+                        - addons/map.yaml
+                        - config: {{ config|tojson }}
+                      {% endif %}
+
+                      # Cameras // *Can be removed
+                      {% if 'camera' in addon %}
+                      {% for camera in config.entities %}
+                      - !include 
+                        - addons/camera.yaml
+                        - config: {{ config|tojson }}
+                          camera: {{ camera|tojson }}
+                      {% endfor %}
+                      {% endif %}
+
+                      # Simple Weather // *Can be removed
+                      {% if (('weather' in addon) and (config.type == 'simple_weather')) %}
+                      - !include 
+                        - addons/simple-weather.yaml
+                        - config: {{ config|tojson }}
+                      {% endif %}
+
+                      # Thermostats // *Can be removed
+                      {% if 'thermostat' in addon %}
+                      {% for thermostat in config.entities %}
+                      - !include 
+                        - addons/thermostat.yaml
+                        - config: {{ config|tojson }}
+                          thermostat: {{ thermostat|tojson }}
+                      {% endfor %}
+                      {% endif %}
+
+                      # Button // *Can be removed
+                      {% if 'button' in addon %}
+                      {% for device in config.entities %}
+                      - !include 
+                        - addons/button.yaml
+                        - config: {{ config|tojson }}
+                          device: {{ device|tojson }}
+                      {% endfor %}
+                      {% endif %}
+                      
+                      # Favorites // *Can be removed
+                      {% if 'favorites' in addon %}
+                      {% for name, data in _global.views.items() %}
+                      {% if data.show_in_favorites is true %}
+                      - !include
+                        - templates/button/hki-button.yaml
+                        {% if data.title is defined %}
+                        - name: {{ data.title }}
+                        {% else %}
+                        - name: {{ name|replace("_", " ")|title }}
+                        {% endif %}
+                          {% if data.button_label is defined %}
+                          label: {{ data.button_label|tojson }}
+                          {% else %}
+                          label: '&nbsp;'
+                          {% endif %}
+                          {% if data.icon is defined %}
+                          icon: {{ data.icon|tojson }}
+                          {% endif %}
+                          show_state: false
+                          tap_action:
+                            action: navigate
+                            navigation_path: {{ name }}
+                          {% if data.button_badge is defined %}
+                          notification: "[[[ if (states['{{ data.button_badge }}'].state == 0) return '&nbsp'; else return `${states['{{ data.button_badge }}'].state}`; ]]]"
+                          background_color: "[[[ if (states['{{ data.button_badge }}'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--badge-background-color)'; ]]]"  
+                          {% endif %}
+                      {% endif %}
+                      {% endfor %}
+                      {% endif %}
+
+                      # Menu // *Can be removed
+                      {% if 'menu' in addon %}
+                      {% for name, data in _global.views.items()|sort %}
+                      {% if (data.show_in_menu is undefined) or ((data.show_in_menu is defined) and (data.show_in_menu is true)) %}
+                      - !include
+                        - templates/button/hki-button.yaml
+                        {% if data.title is defined %}
+                        - name: {{ data.title }}
+                        {% else %}
+                        - name: {{ name|replace("_", " ")|title }}
+                        {% endif %}
+                          {% if data.button_label is defined %}
+                          label: {{ data.button_label|tojson }}
+                          {% else %}
+                          label: '&nbsp;'
+                          {% endif %}
+                          {% if data.icon is defined %}
+                          icon: {{ data.icon|tojson }}
+                          {% endif %}
+                          show_state: false
+                          tap_action:
+                            action: navigate
+                            navigation_path: {{ name }}
+                          {% if data.button_badge is defined %}
+                          notification: "[[[ if (states['{{ data.button_badge }}'].state == 0) return '&nbsp'; else return `${states['{{ data.button_badge }}'].state}`; ]]]"
+                          background_color: "[[[ if (states['{{ data.button_badge }}'].state == 0) return 'rgba(0,0,0,0.0)'; else return 'var(--badge-background-color)'; ]]]"  
+                          {% endif %}
+                      {% endif %}
+                      {% endfor %}
+                      {% endif %}
+
+# End of Addons // *Do NOT remove
+            {% endfor %}
+            {% endfor %}
+            {% endif %}
+
+# Bottom Gap // *Do NOT remove
+        - !include includes/gap-height.yaml
+{% endfor %}
+# End of Loop // *Do NOT remove
+
+# HKI Settings View // *Do NOT remove
+- !include templates/settings/hki-settings.yaml
+
+# HKI Find My // *Do NOT remove
+- !include templates/settings/find_my.yaml

@@ -1,0 +1,10 @@
+state:
+  - value: "off"
+    styles:
+      icon:
+        - color: var(--ha-icon-color)
+      name:
+        - font-weight: var(--name-font-weight)
+        - font-family: var(--font-family) 
+        - font-size: var(--name-font-size)
+        - color: var(--name-color)

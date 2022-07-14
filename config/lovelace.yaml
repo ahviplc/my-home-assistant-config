@@ -1,0 +1,6 @@
+  mode: yaml
+  resources:
+    - url: /card-mod.js
+      type: module
+    - url: https://ghproxy.com/https://raw.githubusercontent.com/bramkragten/swipe-card/master/dist/swipe-card.js
+      type: module

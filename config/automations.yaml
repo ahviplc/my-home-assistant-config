@@ -1,0 +1,40 @@
+- id: '1657710759956'
+  alias: faker门锁 被关闭 通知
+  description: ''
+  trigger:
+  - type: opened
+    platform: device
+    device_id: 837f17137d9516f0e41316e635b48839
+    entity_id: binary_sensor.dw2hl_cloud_t85c00_state
+    domain: binary_sensor
+  condition: []
+  action:
+  - service: persistent_notification.create
+    data:
+      message: 'faker门锁 被关闭 '
+      title: faker门锁通知
+  - service: notify.mobile_app_theiphoneoflcde_iphone
+    data:
+      message: 'faker门锁 被关闭 '
+      title: faker门锁通知
+  mode: single
+- id: '1657711095867'
+  alias: faker门锁 被打开 通知
+  description: ''
+  trigger:
+  - type: not_opened
+    platform: device
+    device_id: 837f17137d9516f0e41316e635b48839
+    entity_id: binary_sensor.dw2hl_cloud_t85c00_state
+    domain: binary_sensor
+  condition: []
+  action:
+  - service: persistent_notification.create
+    data:
+      message: faker门锁 被打开
+      title: faker门锁通知
+  - service: notify.mobile_app_theiphoneoflcde_iphone
+    data:
+      message: faker门锁 被打开
+      title: faker门锁通知
+  mode: single
