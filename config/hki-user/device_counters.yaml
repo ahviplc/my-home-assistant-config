@@ -6,48 +6,107 @@
 
 # All Radiator Valves or Climate entities (ONLY climate entities can be used here!, if you have a single thermostat put it here as well)
 all_climate_entities:
+  name: 所有空调
   entities:
+    - sensor.t2_cloud_c0lo00
 
 # All Fans (Enter all your fans in here)
 all_fan_entities:
+  name: 所有风扇
   entities:
 
 # Window Sensors (This is used in the header badges, without this the header badge won't work)
 all_window_sensor_entities:
+  name: 所有窗磁
   entities:
+    - sensor.dw2hl_cloud_t85c00
 
 # Door Sensors (This is used in the header badges, without this the header badge won't work)
 all_door_sensor_entities:
+  name: 所有门磁
   entities:
+    - sensor.dw2hl_cloud_t85c00
 
 # Motion Sensors (This is used in the header badges, without this the header badge won't work)
 all_motion_sensor_entities:
+  name: 所有活动探测器
   entities:
+    - camera.192_168_5_37
 
 # All Detectors (smoke/gas/fire etc)
 all_detector_entities:
+  name: 所有烟感和漏水探测器
   entities:
 
 # All Binary Sensors (put all your binary sensors here e.g. smoke/gas/fire/door/window/motion etc. You can use this as a counter on the security button)
 all_binary_sensor_entities:
+  name: 所有二进制探测器
   entities:
-    
+    - sensor.dw2hl_cloud_t85c00
+
 # All Lights
 all_light_entities:
+  name: 所有灯
   entities:
+    - switch.212a01_cloud_873391
 
 # All Devices
 all_device_switch_entities:
+  name: 所有插座
   entities:
-    
+    - switch.212a01_cloud_873391
+    - media_player.android_tv_192_168_5_84
+
 # All Covers
 all_cover_entities:
+  name: 所有窗帘
   entities:
 
 # All Garage Doors
 all_garage_door_entities:
+  name: 车库门
   entities:
+
+# All Temperature Sensors
+all_temperature_sensors:
+  name: 所有温度传感器
+  entities:
+    - sensor.t2_cloud_c0lo00
+
+# All Humidity Sensors
+all_humidity_sensors:
+  name: 所有湿度传感器
+  entities:
+    - sensor.t2_cloud_c0lo00
+
+# Camera's
+all_cameras:
+  name: 所有摄像头
+  entities:
+    - camera.192_168_5_37
+
+# All TV's
+all_tvs:
+  name: 所有电视
+  entities:
+
+# All media player
+all_hardware_media_players:
+  name: 所有播放器
+  entities:
+    - media_player.android_tv_192_168_5_84
+
+# person
+all_person:
+  name: 所有人
+  entities:
+    - person.lc
 
 # All Entities # Put ALL of the above entities in here to get the most out of HKI on mobile phones
 all_entities:
   entities:
+    - sensor.t2_cloud_c0lo00
+    - sensor.dw2hl_cloud_t85c00
+    - camera.192_168_5_37
+    - switch.212a01_cloud_873391
+    - media_player.android_tv_192_168_5_84

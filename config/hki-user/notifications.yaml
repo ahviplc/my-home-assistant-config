@@ -43,6 +43,30 @@
 #    - icon: mdi:check-box-outline
 #      name: Smoke detected in the Kitchen!
 
+# ======================================================================================
+# LC自定义的通知
+- type: conditional
+  conditions:
+    - entity: binary_sensor.dw2hl_cloud_t85c00_state
+      state: "on"
+  card:
+    !include
+    - '../hki-base/templates/header/subtitle-notification-template.yaml'
+    - icon: mdi:message
+      name: the faker door closed!
+
+- type: conditional
+  conditions:
+    - entity: binary_sensor.dw2hl_cloud_t85c00_state
+      state: "off"
+  card:
+    !include
+    - '../hki-base/templates/header/subtitle-notification-template.yaml'
+    - icon: mdi:message
+      name: the faker door open!
+
+# ======================================================================================
+
 - type: conditional
   conditions:
     - entity: input_boolean.dummy1
@@ -52,4 +76,3 @@
     - '../hki-base/templates/header/subtitle-notification-template.yaml'
     - icon: mdi:alert
       name: Never Give Up! No notifications yet, please open /hki-user/notifications.yaml
-

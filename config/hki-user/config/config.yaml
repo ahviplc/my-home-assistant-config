@@ -1,11 +1,11 @@
 config:
 
-# HOME ALARM *Please read the documentation before editing! https://github.com/jimzz011/homekit-infused/docs/addons/alarm.md
+  # HOME ALARM *Please read the documentation before editing! https://github.com/jimzz011/homekit-infused/docs/addons/alarm.md
   alarm:
     entity: alarm_control_panel.home_alarm
     show_badge: true
-      
-# HEADER *Please read the documentation before editing! https://github.com/jimzz011/homekit-infused/docs/addons/header.md
+
+  # HEADER *Please read the documentation before editing! https://github.com/jimzz011/homekit-infused/docs/addons/header.md
   header:
     badges:
       - name: Thermostats
@@ -39,7 +39,7 @@ config:
         group_entity: group.all_light_entities
         grid_area: one
 
-# POPUPS *Change the orientation of the close button to either the left or right side of the screen.
+  # POPUPS *Change the orientation of the close button to either the left or right side of the screen.
   popups:
     close_button_orientation: right
 
@@ -63,93 +63,165 @@ config:
       - rgb_color: [3, 0, 255]
         hex_color: '#0300ff'
 
-# FIND MY *Please read the documentation before editing! https://github.com/jimz011/homekit-infused/docs/addons/find-my.md
-#  find_my:
-#    persons:
-#      - name: Jimmy
-#        entity: person.jimmy
-#        battery_entity: sensor.z_fold_3_jimmy_battery_level
-#        geocoded_location_entity: sensor.z_fold_3_jimmy_geocoded_location
-#      - name: Stephanie
-#        entity: person.stephanie
-#        battery_entity: sensor.sm_n986b_battery_level
-#        geocoded_location_entity: sensor.sm_n986b_geocoded_location
-#      - name: Tala
-#        entity: person.tala
-#    devices:
-#      - name: Riem Tala
-#        entity: person.tala
-#        entity_picture: /local/images/tile-black.jpg
-#      - name: Keys Jimmy
-#        entity: device_tracker.keys
-#      - name: Keys Stephanie
-#        entity: device_tracker.keys_stephanie
-#      - name: Z Fold 3
-#        entity: device_tracker.z_fold_3_jimmy
-#        geocoded_location_entity: sensor.z_fold_3_jimmy_geocoded_location
-#        battery_entity: sensor.z_fold_3_jimmy_battery_level
-#      - name: Note 20 Ultra
-#        entity: device_tracker.sm_n986b
-#        battery_entity: sensor.sm_n986b_battery_level
-#        geocoded_location_entity: sensor.sm_n986b_geocoded_location
-#      - name: Watch4 Jimmy
-#        entity: device_tracker.unifi_fe_a7_45_e9_01_53_default
-#        battery_entity: sensor.galaxy_watch4_classic_ecsm_battery_level
-#      - name: Watch4 Stephanie
-#        entity: device_tracker.sm_r880
-#        battery_entity: sensor.galaxy_watch4_classic_w4wd_battery_level
+  # FIND MY *Please read the documentation before editing! https://github.com/jimz011/homekit-infused/docs/addons/find-my.md
+  #  find_my:
+  #    persons:
+  #      - name: Jimmy
+  #        entity: person.jimmy
+  #        battery_entity: sensor.z_fold_3_jimmy_battery_level
+  #        geocoded_location_entity: sensor.z_fold_3_jimmy_geocoded_location
+  #      - name: Stephanie
+  #        entity: person.stephanie
+  #        battery_entity: sensor.sm_n986b_battery_level
+  #        geocoded_location_entity: sensor.sm_n986b_geocoded_location
+  #      - name: Tala
+  #        entity: person.tala
+  #    devices:
+  #      - name: Riem Tala
+  #        entity: person.tala
+  #        entity_picture: /local/images/tile-black.jpg
+  #      - name: Keys Jimmy
+  #        entity: device_tracker.keys
+  #      - name: Keys Stephanie
+  #        entity: device_tracker.keys_stephanie
+  #      - name: Z Fold 3
+  #        entity: device_tracker.z_fold_3_jimmy
+  #        geocoded_location_entity: sensor.z_fold_3_jimmy_geocoded_location
+  #        battery_entity: sensor.z_fold_3_jimmy_battery_level
+  #      - name: Note 20 Ultra
+  #        entity: device_tracker.sm_n986b
+  #        battery_entity: sensor.sm_n986b_battery_level
+  #        geocoded_location_entity: sensor.sm_n986b_geocoded_location
+  #      - name: Watch4 Jimmy
+  #        entity: device_tracker.unifi_fe_a7_45_e9_01_53_default
+  #        battery_entity: sensor.galaxy_watch4_classic_ecsm_battery_level
+  #      - name: Watch4 Stephanie
+  #        entity: device_tracker.sm_r880
+  #        battery_entity: sensor.galaxy_watch4_classic_w4wd_battery_level
 
-# PROFILE MENU *Please read the documentation before editing! https://github.com/jimz011/homekit-infused/docs/addons/profile.md
+  # PROFILE MENU *Please read the documentation before editing! https://github.com/jimz011/homekit-infused/docs/addons/profile.md
   profile:
     markdown: >
       **{{ states('sensor.greeting') }} {{ user|capitalize }}**
-    
+
       {{ state_attr('sensor.pretty_date', 'week_day') }}, {{ states('sensor.pretty_date') }}
-    
-#    media_player:
-#      type: custom:state-switch
-#      entity: user
-#      states:
-#        Jimmy:
-#          type: custom:mini-media-player
-#          card_mod:
-#            style: |
-#              :host {
-#                --ha-card-background: black !important;
-#              }
-#          entity: media_player.spotify_jimmy
-#          artwork: cover
-#          hide:
-#            source: true
-#            power_state: true
-#        Stephanie:
-#          type: custom:mini-media-player
-#          card_mod:
-#            style: |
-#              :host {
-#                --ha-card-background: black !important;
-#              }
-#          entity: media_player.spotify_jimmy
-#          artwork: cover
-#          hide:
-#            source: true
-#            power_state: true
-#    cards:
-#      - title: Location
-#        icon: mdi:map
-#        padding: -5
-#        entities:
-#          - type: custom:hui-vertical-stack-card
-#            cards:
-#              - type: map
-#                dark_mode: true
-#                card_mod:
-#                  style: |
-#                    ha-card {
-#                      box-shadow: none;
-#                    }
-#                aspect_ratio: 2x1
-#                entities:
-#                  - person.jimmy
-#                  - person.stephanie
-#                  - person.tala
+
+      > 永不言弃！~ LC
+
+  #    media_player:
+  #      type: custom:state-switch
+  #      entity: user
+  #      states:
+  #        Jimmy:
+  #          type: custom:mini-media-player
+  #          card_mod:
+  #            style: |
+  #              :host {
+  #                --ha-card-background: black !important;
+  #              }
+  #          entity: media_player.spotify_jimmy
+  #          artwork: cover
+  #          hide:
+  #            source: true
+  #            power_state: true
+  #        Stephanie:
+  #          type: custom:mini-media-player
+  #          card_mod:
+  #            style: |
+  #              :host {
+  #                --ha-card-background: black !important;
+  #              }
+  #          entity: media_player.spotify_jimmy
+  #          artwork: cover
+  #          hide:
+  #            source: true
+  #            power_state: true
+  #    cards:
+  #      - title: Location
+  #        icon: mdi:map
+  #        padding: -5
+  #        entities:
+  #          - type: custom:hui-vertical-stack-card
+  #            cards:
+  #              - type: map
+  #                dark_mode: true
+  #                card_mod:
+  #                  style: |
+  #                    ha-card {
+  #                      box-shadow: none;
+  #                    }
+  #                aspect_ratio: 2x1
+  #                entities:
+  #                  - person.jimmy
+  #                  - person.stephanie
+  #                  - person.tala
+
+  # ========================================================================================================
+  # LC自定义的find_my和media_player
+  find_my:
+    persons:
+      - name: LC
+        entity: person.lc
+        battery_entity: sensor.theiphoneoflcde_iphone_battery_level
+        geocoded_location_entity: sensor.theiphoneoflcde_iphone_geocoded_location
+    devices:
+      - name: iPhone 12
+        entity: sensor.theiphoneoflcde_iphone
+        # entity_picture: /local/images/phone.jpg
+        icon: mdi:cellphone
+        battery_entity: sensor.theiphoneoflcde_iphone_battery_level
+        geocoded_location_entity: sensor.theiphoneoflcde_iphone_geocoded_location
+    vehicles:
+      - name: my Car
+        entity: sensor.theiphoneoflcde_iphone
+        icon: mdi:shield-car
+        battery_entity: sensor.theiphoneoflcde_iphone_battery_level
+        geocoded_location_entity: sensor.theiphoneoflcde_iphone_geocoded_location
+
+  media_player:
+    type: custom:state-switch
+    entity: user
+    states:
+      LC:
+        type: custom:mini-media-player
+        card_mod:
+          style: |
+            :host {
+              --ha-card-background: black !important;
+            }
+        entity: media_player.android_tv_192_168_5_84
+        artwork: cover
+        hide:
+          source: true
+          power_state: true
+      LC二代:
+        type: custom:mini-media-player
+        card_mod:
+          style: |
+            :host {
+              --ha-card-background: black !important;
+            }
+        entity: media_player.android_tv_192_168_5_84
+        artwork: cover
+        hide:
+          source: true
+          power_state: true
+  cards:
+    - title: Location
+      icon: mdi:map
+      padding: -5
+      entities:
+        - type: custom:hui-vertical-stack-card
+          cards:
+            - type: map
+              dark_mode: true
+              card_mod:
+                style: |
+                  ha-card {
+                    box-shadow: none;
+                  }
+              aspect_ratio: 2x1
+              entities:
+                - person.lc
+
+# ========================================================================================================
