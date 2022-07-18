@@ -63,7 +63,7 @@
     !include
     - '../hki-base/templates/header/subtitle-notification-template.yaml'
     - icon: mdi:message
-      name: the faker door open!
+      name: the faker door is open!
 
 # ======================================================================================
 
