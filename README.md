@@ -28,7 +28,7 @@ docker run -d -p 8123:8123 \
 -v /your-path/home_assistant_data/var/run/dbus:/var/run/dbus \
 --net=host \
 --privileged \
---restart unless-stopped \
+--restart=unless-stopped \
 homeassistant/home-assistant:latest
 
 ===========================================================================================

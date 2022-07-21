@@ -368,11 +368,82 @@ views: # NEVER REMOVE THIS LINE
             - media_player.kodi_in_android_tv
 
   # ================================================================================================================================================================
+  # 公交卡 上海公交卡 查余额
+  # sensor.shang_hai_gong_jiao_ka | by Node-RED Companion
+  Bus:
+    title: 公交卡
+    show_in_navbar: false
+    show_in_menu: true
+    show_in_favorites: false
+    subtitle: "[[[ return `上海公交卡 查余额`; ]]]"
+    columns:
+      buttons: 3
+      view_selector: 2
+    icon: mdi:bus
+    button_badge: sensor.shang_hai_gong_jiao_ka # 按钮徽章
+    button_label: "[[[ return `一些公交卡`; ]]]" # 按钮文本
+    layout:
+      layout_type: custom:horizontal-layout
+      options:
+        - max_cols: 3
+          max_width: 500
+          width: 300
+    custom_cards:
+      position: top
+      type: default
+    addons:
+      button:
+        - title: LC在上海 公交卡1
+          entities:
+            - entity: sensor.shang_hai_gong_jiao_ka
+              name: 公交卡1
+              icon: mdi:bus
+              button_badge: sensor.shang_hai_gong_jiao_ka
+              # button_label: "[[[ if (entity.state == 'on') return `已关闭`; else return `已打开`; ]]]" # 这是表达式写法模板
+              # show_last_changed: true # 可用 隐掉 为了显示下面的 label
+              label: "[[[ return `${states['sensor.shang_hai_gong_jiao_ka'].state} 元`; ]]]" # 写法1 获取状态 state
+            - entity: sensor.shang_hai_gong_jiao_ka
+              name: 公交卡1 卡号
+              icon: mdi:numeric
+              button_badge: sensor.shang_hai_gong_jiao_ka
+              # button_label: "[[[ return `一些公交卡`; ]]]"
+              # show_last_changed: true
+              label: "[[[ return `卡号: ${states['sensor.shang_hai_gong_jiao_ka'].attributes.cardno}`; ]]]" # 写法1 获取属性 attributes
+        - title: LC在安徽 公交卡2
+          entities:
+            - entity: sensor.shang_hai_gong_jiao_ka
+              name: 公交卡2
+              icon: mdi:bus
+              button_badge: sensor.shang_hai_gong_jiao_ka
+              # button_label: "[[[ return `一些公交卡`; ]]]"
+              # show_last_changed: true
+              label: "[[[ return `${entity.state} 元|日期:` + entity.attributes.lastdate; ]]]" # 写法2 获取状态 state 注意 这里只能使用 $ 符号取值
+            - entity: sensor.shang_hai_gong_jiao_ka
+              name: 公交卡2 卡号
+              icon: mdi:numeric
+              button_badge: sensor.shang_hai_gong_jiao_ka
+              # button_label: "[[[ return `一些公交卡`; ]]]"
+              # show_last_changed: true
+              label: "[[[ return `卡号:` + entity.attributes.cardno; ]]]" # 写法2 获取属性 attributes 这个拼接自定义字符串的写法和 line 420 的均可使用
+
+  # ================================================================================================================================================================
+  # TODO1
+  # 其他待做
+
+  # ================================================================================================================================================================
+  # TODO2
+  # 其他待做
+
+  # ================================================================================================================================================================
   # TODO3
   # 其他待做
 
   # ================================================================================================================================================================
   # TODO4
+  # 其他待做
+
+  # ================================================================================================================================================================
+  # TODO5
   # 其他待做
 
   # ================================================================================================================================================================
