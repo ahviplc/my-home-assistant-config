@@ -2,6 +2,8 @@
 
 > 🏡 My Home Assistant Configs. 🏡我的Home Assistant配置.
 
+> https://github.com/ahviplc/my-home-assistant-config.git
+
 > https://gitee.com/ahviplc/my-home-assistant-config
 
 # 一些链接
