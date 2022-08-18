@@ -123,7 +123,9 @@ Enjoy...
 ===========================================================================================
 ```
 
-# 一些技巧
+# 一些说明
+
+## 一些技巧
 
 ```markdown
 ====================================================================================================
@@ -158,6 +160,38 @@ Enjoy......
         self.log.error("===After===Downloading %s", url)
 
 ====================================================================================================
+```
+
+## github代理设置
+
+灵感来自 -> https://blog.csdn.net/LLY_A_/article/details/120390446
+
+`执行git指令` | 只对GitHub进行代理
+
+> git config --global http.https://github.com.proxy http://192.168.192.192:7893
+
+> git config --global https.https://github.com.proxy http://192.168.192.192:7893
+
+`取消代理` | 好像失灵了 直接在git配置文件删除上面相关内容也可
+
+> git config --global --unset http.proxy
+
+> git config --global --unset https.proxy
+
+`查看git配置文件` | 可用
+
+指令执行之后 git配置文件 `.gitconfig` 内容变为
+
+```yaml
+[user]
+	name = ahviplc
+	email = ahlc@sina.cn
+[winUpdater]
+	recentlySeenVersion = 2.37.1.windows.1
+[http "https://github.com"]
+	proxy = http://192.168.192.192:7893
+[https "https://github.com"]
+	proxy = http://192.168.192.192:7893
 ```
 
 # 什么是 pyc
