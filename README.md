@@ -111,6 +111,13 @@ https://github.com/Potato501/home_assistant/tree/Potato/Config/hki-user/views
 view_config(进阶教程完整的参考配置).yaml - Potato501/home_assistant - GitHub1s
 https://github1s.com/Potato501/home_assistant/blob/Potato/Config/hki-user/config/view_config(%E8%BF%9B%E9%98%B6%E6%95%99%E7%A8%8B%E5%AE%8C%E6%95%B4%E7%9A%84%E5%8F%82%E8%80%83%E9%85%8D%E7%BD%AE).yaml#L447
 
+下面两个为lovelace-mushroom教程视频
+https://www.youtube.com/watch?v=gouMnPxYHDc
+https://www.bilibili.com/video/BV1DP411L7B7
+
+GitHub - piitaya/lovelace-mushroom: Mushroom Cards - Build a beautiful dashboard easily 🍄 这个极其不错的
+https://github.com/piitaya/lovelace-mushroom
+
 Enjoy...
 
 ===========================================================================================
