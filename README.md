@@ -178,7 +178,11 @@ Enjoy......
 
 > git config --global --unset https.proxy
 
-`查看git配置文件` | 可用
+`查看git已有配置`
+
+> git config --global -l
+
+`查看git配置文件内容` | 添加下面的内容之后是可用的 有效果的
 
 指令执行之后 git配置文件 `.gitconfig` 内容变为
 
