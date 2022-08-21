@@ -70,41 +70,42 @@ views: # NEVER REMOVE THIS LINE
       button:
         - title: 厨房
           entities:
-            - entity: switch.212a01_cloud_873391
+            - entity: switch.212a01_cloud_194002
               type: cover
         - title: 客厅
           entities:
             - entity: switch.212a01_cloud_873391
+              name: 客厅沙发灯
             - entity: switch.212a01_cloud_873391
             - entity: switch.212a01_cloud_873391
         - title: 餐厅
           entities:
-            - entity: switch.212a01_cloud_873391
-            - entity: switch.212a01_cloud_873391
+            - entity: switch.212a01_cloud_194002
+            - entity: switch.212a01_cloud_194002
         - title: 门厅&过道
           entities:
-            - entity: switch.212a01_cloud_873391
-            - entity: switch.212a01_cloud_873391
-            - entity: switch.212a01_cloud_873391
-            - entity: switch.212a01_cloud_873391
-            - entity: switch.212a01_cloud_873391
-            - entity: switch.212a01_cloud_873391
+            - entity: switch.212a01_cloud_194002
+            - entity: switch.212a01_cloud_194002
+            - entity: switch.212a01_cloud_194002
+            - entity: switch.212a01_cloud_194002
+            - entity: switch.212a01_cloud_194002
+            - entity: switch.212a01_cloud_194002
         - title: 主卧
           entities:
-            - entity: switch.212a01_cloud_873391
+            - entity: switch.212a01_cloud_194002
         - title: 次卧
           entities:
-            - entity: switch.212a01_cloud_873391
+            - entity: switch.212a01_cloud_194002
         - title: 儿童房台灯
           entities:
-            - entity: switch.212a01_cloud_873391
+            - entity: switch.212a01_cloud_194002
         - title: 洗手间
           entities:
-            - entity: switch.212a01_cloud_873391
+            - entity: switch.212a01_cloud_194002
         - title: 阳台
           entities:
-            - entity: switch.212a01_cloud_873391
-              name: 阳台沙发灯
+            - entity: switch.212a01_cloud_194002
+              name: 阳台Faker灯-小开关
 
   # ================================================================================================================================================================
   # 网络设备状态
@@ -157,6 +158,12 @@ views: # NEVER REMOVE THIS LINE
           entity: weather.lcde_jia
           show_forecast: true
           path: weather
+      custom:
+        - title: 天气预报2
+          cards:
+            - type: custom:weather-card
+              entity: weather.lcde_jia
+              number_of_forecasts: '5'
 
   # ================================================================================================================================================================
   # 气候 使用了 sensor传感器 插件
@@ -424,12 +431,68 @@ views: # NEVER REMOVE THIS LINE
               button_badge: sensor.shang_hai_gong_jiao_ka
               # button_label: "[[[ return `一些公交卡`; ]]]"
               # show_last_changed: true
-              label: "[[[ return `卡号:` + entity.attributes.cardno; ]]]" # 写法2 获取属性 attributes 这个拼接自定义字符串的写法和 line 420 的均可使用
+              label: "[[[ return `卡号:` + entity.attributes.cardno; ]]]" # 写法2 获取属性 attributes 这个拼接自定义字符串的写法和 line 418 的均可使用
 
   # ================================================================================================================================================================
-  # TODO1
-  # 其他待做
-
+  # 空调
+  # AirConditioning
+  AirConditioning:
+    title: 空调
+    show_in_navbar: false
+    show_in_menu: true
+    show_in_favorites: true
+    subtitle: "[[[ return `${states['climate.miotir_cloud_168640'].state} | ${states['climate.miotir_cloud_168640'].attributes.temperature}`; ]]]"
+    button_badge: climate.miotir_cloud_168640
+    columns:
+      buttons: 3
+    icon: mdi:air-conditioner
+    layout:
+      layout_type: custom:horizontal-layout
+      options:
+        - max_cols: 3
+          max_width: 500
+          width: 300
+    custom_cards:
+      position: top
+      type: default
+    addons:
+      custom:
+        - title: Faker空调
+          cards:
+            - type: custom:mushroom-climate-card
+              entity: climate.miotir_cloud_168640
+              show_temperature_control: true
+              collapsible_controls: false
+              fill_container: true
+              name: Faker空调
+              icon: mdi:air-conditioner
+              hvac_modes:
+                - auto
+                - heat
+                - dry
+                - heat_cool
+                - fan_only
+                - cool
+                - 'off'
+            - type: custom:mushroom-climate-card
+              entity: climate.miotir_cloud_168640
+              show_temperature_control: true
+              collapsible_controls: false
+              fill_container: true
+              name: Faker空调2
+              icon: mdi:air-conditioner
+              hvac_modes:
+                - auto
+                - heat
+                - dry
+                - heat_cool
+                - fan_only
+                - cool
+                - 'off'
+            - type: thermostat
+              entity: climate.miotir_cloud_168640
+              name: Faker空调3
+              theme: HKI Default
   # ================================================================================================================================================================
   # TODO2
   # 其他待做

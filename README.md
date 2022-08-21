@@ -118,6 +118,12 @@ https://www.bilibili.com/video/BV1DP411L7B7
 GitHub - piitaya/lovelace-mushroom: Mushroom Cards - Build a beautiful dashboard easily 🍄 这个极其不错的
 https://github.com/piitaya/lovelace-mushroom
 
+Homekit Infused 5 | Homekit Infused 5 2022 | addons/custom 使用自定义卡片 比如 lovelace-mushroom 中的卡片
+https://jimz011.github.io/homekit-infused/addons/custom.html
+
+Homekit Infused 5 | Homekit Infused 5 2022 | addons 插件 所有的插件类型 均可配置条件 conditional | conditions (满足条件才可以显示此具体插件)
+https://jimz011.github.io/homekit-infused/addons.html
+
 Enjoy...
 
 ===========================================================================================

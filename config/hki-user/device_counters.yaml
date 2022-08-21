@@ -9,6 +9,7 @@ all_climate_entities:
   # name: 所有空调
   entities:
     - sensor.t2_cloud_c0lo00
+    - climate.miotir_cloud_168640
 
 # All Fans (Enter all your fans in here)
 all_fan_entities:
@@ -49,12 +50,14 @@ all_light_entities:
   # name: 所有灯
   entities:
     - switch.212a01_cloud_873391
+    - switch.212a01_cloud_194002
 
 # All Devices
 all_device_switch_entities:
   # name: 所有插座
   entities:
     - switch.212a01_cloud_873391
+    - switch.212a01_cloud_194002
     - media_player.android_tv_192_168_5_84
 
 # All Covers
@@ -103,10 +106,13 @@ all_person:
     - person.lc
 
 # All Entities # Put ALL of the above entities in here to get the most out of HKI on mobile phones
+# switch.212a01_cloud_194002 这是 Faker灯 小开关
 all_entities:
   entities:
     - sensor.t2_cloud_c0lo00
     - sensor.dw2hl_cloud_t85c00
     - camera.192_168_5_37
     - switch.212a01_cloud_873391
+    - switch.212a01_cloud_194002
     - media_player.android_tv_192_168_5_84
+    - climate.miotir_cloud_168640
