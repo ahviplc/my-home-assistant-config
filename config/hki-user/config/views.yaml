@@ -106,6 +106,119 @@ views: # NEVER REMOVE THIS LINE
           entities:
             - entity: switch.212a01_cloud_194002
               name: 阳台Faker灯-小开关
+      custom:
+        - title: 其他区域
+          view_layout:
+            column: 1
+          cards:
+            - type: horizontal-stack
+              cards:
+                - type: custom:mushroom-light-card
+                  entity: switch.212a01_cloud_194002
+                  layout: vertical
+                  fill_container: true
+                  name: Faker小开关
+                  collapsible_controls: true
+                  show_brightness_control: true
+                  use_light_color: true
+                  show_color_temp_control: true
+                  show_color_control: true
+                - type: custom:mushroom-light-card
+                  entity: switch.212a01_cloud_194002
+                  fill_container: true
+                  layout: vertical
+                  name: 小开关
+                - type: custom:mushroom-light-card
+                  entity: switch.212a01_cloud_194002
+                  fill_container: true
+                  layout: vertical
+                  name: 小开关
+                - type: custom:mushroom-light-card
+                  entity: switch.212a01_cloud_194002
+                  fill_container: true
+                  layout: vertical
+                  name: 小开关
+                - type: custom:mushroom-light-card
+                  entity: switch.212a01_cloud_194002
+                  use_light_color: false
+                  fill_container: true
+                  collapsible_controls: false
+                  layout: vertical
+                  name: 小开关
+            - type: vertical-stack
+              cards:
+                - type: custom:mushroom-light-card
+                  entity: switch.212a01_cloud_194002
+                  name: 小开关
+                  fill_container: true
+                  use_light_color: true
+                  show_color_temp_control: true
+                  show_color_control: true
+                  show_brightness_control: true
+                  collapsible_controls: true
+                - type: custom:mushroom-light-card
+                  entity: switch.212a01_cloud_194002
+                  name: Faker小开关
+                - type: custom:mushroom-light-card
+                  entity: switch.212a01_cloud_194002
+                  name: 小开关
+                  fill_container: false
+        - title: 其他区域2
+          view_layout:
+            column: 1
+          cards:
+            - type: horizontal-stack
+              cards:
+                - type: custom:mushroom-light-card
+                  entity: switch.212a01_cloud_194002
+                  layout: vertical
+                  fill_container: true
+                  name: Faker小开关
+                  collapsible_controls: true
+                  show_brightness_control: true
+                  use_light_color: true
+                  show_color_temp_control: true
+                  show_color_control: true
+                - type: custom:mushroom-light-card
+                  entity: switch.212a01_cloud_194002
+                  fill_container: true
+                  layout: vertical
+                  name: 小开关
+                - type: custom:mushroom-light-card
+                  entity: switch.212a01_cloud_194002
+                  fill_container: true
+                  layout: vertical
+                  name: 小开关
+                - type: custom:mushroom-light-card
+                  entity: switch.212a01_cloud_194002
+                  fill_container: true
+                  layout: vertical
+                  name: 小开关
+                - type: custom:mushroom-light-card
+                  entity: switch.212a01_cloud_194002
+                  use_light_color: false
+                  fill_container: true
+                  collapsible_controls: false
+                  layout: vertical
+                  name: 小开关
+            - type: vertical-stack
+              cards:
+                - type: custom:mushroom-light-card
+                  entity: switch.212a01_cloud_194002
+                  name: 小开关
+                  fill_container: true
+                  use_light_color: true
+                  show_color_temp_control: true
+                  show_color_control: true
+                  show_brightness_control: true
+                  collapsible_controls: true
+                - type: custom:mushroom-light-card
+                  entity: switch.212a01_cloud_194002
+                  name: Faker小开关
+                - type: custom:mushroom-light-card
+                  entity: switch.212a01_cloud_194002
+                  name: 小开关
+                  fill_container: false
 
   # ================================================================================================================================================================
   # 网络设备状态
@@ -128,6 +241,27 @@ views: # NEVER REMOVE THIS LINE
     custom_cards:
       position: top
       type: default
+    addons:
+      custom:
+        - title: 网络上下行
+          cards:
+            - type: custom:mushroom-chips-card
+              chips:
+                - type: back
+                - type: entity
+                  entity: sensor.redmi_ac2100_wireless_router_packets_s_sent
+                  use_entity_picture: false
+                  icon: mdi:upload
+                - type: entity
+                  entity: sensor.redmi_ac2100_wireless_router_packets_s_received
+                  icon: mdi:download
+                - type: entity
+                  entity: sensor.redmi_ac2100_wireless_router_kib_s_sent
+                  icon: mdi:upload
+                - type: entity
+                  entity: sensor.redmi_ac2100_wireless_router_kib_s_received
+                  icon: mdi:download
+              alignment: center
 
   # ================================================================================================================================================================
   # 天气预报
@@ -431,7 +565,7 @@ views: # NEVER REMOVE THIS LINE
               button_badge: sensor.shang_hai_gong_jiao_ka
               # button_label: "[[[ return `一些公交卡`; ]]]"
               # show_last_changed: true
-              label: "[[[ return `卡号:` + entity.attributes.cardno; ]]]" # 写法2 获取属性 attributes 这个拼接自定义字符串的写法和 line 418 的均可使用
+              label: "[[[ return `卡号:` + entity.attributes.cardno; ]]]" # 写法2 获取属性 attributes 这个拼接自定义字符串的写法和 line 552 的均可使用
 
   # ================================================================================================================================================================
   # 空调
