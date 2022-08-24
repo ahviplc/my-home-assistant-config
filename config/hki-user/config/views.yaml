@@ -460,6 +460,13 @@ views: # NEVER REMOVE THIS LINE
               name: faker门锁电池电量
               icon: mdi:battery
               button_label: "[[[ return entity.state; ]]]"
+              lock: true # 锁定 需要点击一次 进行解锁
+              tap_action: # 单击 默认是 toggle
+                action: none
+              hold_action: # 保持单击/点击
+                action: more-info
+              double_tap_action: # 双击
+                action: more-info
         - title: LC在安徽 窗户锁
           entities:
             - entity: binary_sensor.dw2hl_cloud_t85c00_state
@@ -469,6 +476,13 @@ views: # NEVER REMOVE THIS LINE
               name: 窗户锁电池电量
               icon: mdi:battery
               button_label: "[[[ return entity.state; ]]]"
+              lock: true # 锁定 需要点击一次 进行解锁
+              tap_action: # 单击 默认是 toggle
+                action: none
+              hold_action: # 保持单击/点击
+                action: more-info
+              double_tap_action: # 双击
+                action: more-info
 
   # ================================================================================================================================================================
   # 电视控制 红米电视 控制开关机 其实也就是个多媒体插件 目前操作的是 天猫精灵 和电视同理
