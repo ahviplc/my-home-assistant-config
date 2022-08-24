@@ -143,6 +143,53 @@ Enjoy...
 
 # 一些说明
 
+## HA与Node-RED的搭配
+
+> 两者搭配使用 可做更多的事情
+
+`相关链接`
+
+```markdown
+Node.js
+https://nodejs.org/en/
+
+GitHub - nodejs/node: Node.js JavaScript runtime
+https://github.com/nodejs/node
+
+Node-RED
+https://nodered.org/
+
+GitHub - node-red/node-red: Low-code programming for event-driven applications
+https://github.com/node-red/node-red
+
+Documentation : Node-RED
+https://nodered.org/docs/
+
+node-red - npm
+https://www.npmjs.com/package/node-red
+
+Library - Node-RED - 节点搜索库 - 官方
+https://flows.nodered.org/
+
+Home Assistant Community Add-ons
+https://addons.community/
+
+GitHub - hassio-addons/repository: Home Assistant Community Add-ons
+https://github.com/hassio-addons/repository
+
+GitHub - hassio-addons/addon-node-red: Node-RED - Home Assistant Community Add-ons
+https://github.com/hassio-addons/addon-node-red
+
+node-red-contrib-home-assistant-websocket
+https://zachowj.github.io/node-red-contrib-home-assistant-websocket/
+
+GitHub - zachowj/node-red-contrib-home-assistant-websocket: Node-RED integration with Home Assistant Core
+https://github.com/zachowj/node-red-contrib-home-assistant-websocket
+
+GitHub - zachowj/hass-node-red: Companion Component for node-red-contrib-home-assistant-websocket to help integrate Node-RED with Home Assistant Core
+https://github.com/zachowj/hass-node-red
+```
+
 ## 一些技巧
 
 ```markdown
