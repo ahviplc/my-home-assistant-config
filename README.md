@@ -143,6 +143,42 @@ Enjoy...
 
 # 一些说明
 
+## HA学习笔记
+
+`分享了很多`
+
+> https://github.com/shaonianzhentan
+
+`来鸭来鸭一起来鸭的个人空间_哔哩哔哩_bilibili`
+
+> https://space.bilibili.com/39523884
+
+```markdown
+HomeAssistant学习笔记
+https://ha.jiluxinqing.com/#/
+
+ha-docs: HomeAssistant学习笔记的视频文档
+https://gitee.com/shaonianzhentan/ha-docs
+
+GitHub - shaonianzhentan/ha-docs: HomeAssistant学习笔记
+https://github.com/shaonianzhentan/ha-docs
+
+卡片集合
+https://ha.jiluxinqing.com/#/plug_dev_card
+
+自定义Lovelace卡片
+https://ha.jiluxinqing.com/#/plug_dev_custom_card
+
+pip安装
+https://ha.jiluxinqing.com/#/install_pip
+
+GitHub - shaonianzhentan/ha_file_explorer: 在HA里使用的文件管理器
+https://github.com/shaonianzhentan/ha_file_explorer
+
+GitHub - shaonianzhentan/ha-extension: HomeAssistant浏览器扩展
+https://github.com/shaonianzhentan/ha-extension
+```
+
 ## HA与Node-RED的搭配
 
 > 两者搭配使用 可做更多的事情
