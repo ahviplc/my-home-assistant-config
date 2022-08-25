@@ -142,6 +142,9 @@ https://github.com/jimz011/homekit-infused/blob/5.x.x-personal/hki-user/views/03
 lovelace-mushroom/fan.md at main · piitaya/lovelace-mushroom · GitHub | lovelace-mushroom 中的风扇配置说明
 https://github.com/piitaya/lovelace-mushroom/blob/main/docs/cards/fan.md
 
+homekit-infused/08.media.yaml at 5.x.x-personal · jimz011/homekit-infused · GitHub | jimz011 多媒体控制源码
+https://github.com/jimz011/homekit-infused/blob/5.x.x-personal/hki-user/views/08.media.yaml
+
 Enjoy...
 
 ===========================================================================================

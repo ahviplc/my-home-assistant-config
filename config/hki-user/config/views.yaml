@@ -487,7 +487,7 @@ views: # NEVER REMOVE THIS LINE
   # ================================================================================================================================================================
   # 电视控制 红米电视 控制开关机 其实也就是个多媒体插件 目前操作的是 天猫精灵 和电视同理
   # 填入错误的实体 media_player.wo_de_tian_mao_mo_he 其实就是天猫精灵 Android TV =  media_player.android_tv_192_168_5_84
-  # TV media 电视 音响 多媒体
+  # TV media 电视 音响 小爱音箱 多媒体
   TVs:
     title: 多媒体
     show_in_navbar: false
@@ -521,6 +521,14 @@ views: # NEVER REMOVE THIS LINE
           title: kodi media player in 天猫精灵
           entities:
             - media_player.kodi_in_android_tv
+        - type: core
+          title: xiaoai media player
+          entities:
+            - media_player.l05c_cloud_066435
+        - type: core
+          title: faker xiaoai media player
+          entities:
+            - media_player.l05c_cloud_249900
 
   # ================================================================================================================================================================
   # 公交卡 上海公交卡 查余额
