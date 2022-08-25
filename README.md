@@ -136,6 +136,12 @@ https://github.com/custom-cards/button-card#Action
 homekit-infused/04.lights.yaml at 5.x.x-personal · jimz011/homekit-infused · GitHub | jimz011 灯光控制源码
 https://github.com/jimz011/homekit-infused/blob/5.x.x-personal/hki-user/views/04.lights.yaml
 
+homekit-infused/03.devices.yaml at 5.x.x-personal · jimz011/homekit-infused · GitHub | jimz011 设备控制源码 | 插座控制
+https://github.com/jimz011/homekit-infused/blob/5.x.x-personal/hki-user/views/03.devices.yaml
+
+lovelace-mushroom/fan.md at main · piitaya/lovelace-mushroom · GitHub | lovelace-mushroom 中的风扇配置说明
+https://github.com/piitaya/lovelace-mushroom/blob/main/docs/cards/fan.md
+
 Enjoy...
 
 ===========================================================================================
@@ -171,6 +177,15 @@ https://ha.jiluxinqing.com/#/plug_dev_custom_card
 
 pip安装
 https://ha.jiluxinqing.com/#/install_pip
+
+MDI图标
+https://ha.jiluxinqing.com/#/website_icon
+
+MDI图标预览
+https://unpkg.com/@mdi/font@5.3.45/preview.html
+
+MDI图标源码地址
+https://github.com/Templarian/MaterialDesign-Webfont
 
 GitHub - shaonianzhentan/ha_file_explorer: 在HA里使用的文件管理器
 https://github.com/shaonianzhentan/ha_file_explorer

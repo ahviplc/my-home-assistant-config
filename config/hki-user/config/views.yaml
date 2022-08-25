@@ -463,7 +463,7 @@ views: # NEVER REMOVE THIS LINE
               lock: true # 锁定 需要点击一次 进行解锁
               tap_action: # 单击 默认是 toggle
                 action: none
-              hold_action: # 保持单击/点击
+              hold_action: # 保持单击/点击 | 长按
                 action: more-info
               double_tap_action: # 双击
                 action: more-info
@@ -479,7 +479,7 @@ views: # NEVER REMOVE THIS LINE
               lock: true # 锁定 需要点击一次 进行解锁
               tap_action: # 单击 默认是 toggle
                 action: none
-              hold_action: # 保持单击/点击
+              hold_action: # 保持单击/点击 | 长按
                 action: more-info
               double_tap_action: # 双击
                 action: more-info
@@ -561,7 +561,7 @@ views: # NEVER REMOVE THIS LINE
               tap_action: # 单击 默认是 toggle
                 action: url
                 url_path: https://www.sptcc.com
-              hold_action: # 保持单击/点击
+              hold_action: # 保持单击/点击 | 长按
                 action: more-info
               double_tap_action: # 双击
                 action: more-info
@@ -575,7 +575,7 @@ views: # NEVER REMOVE THIS LINE
               lock: true # 锁定 需要点击一次 进行解锁
               tap_action: # 单击 默认是 toggle
                 action: none
-              hold_action: # 保持单击/点击
+              hold_action: # 保持单击/点击 | 长按
                 action: more-info
               double_tap_action: # 双击
                 action: more-info
@@ -591,7 +591,7 @@ views: # NEVER REMOVE THIS LINE
               tap_action: # 单击 默认是 toggle
                 action: navigate
                 navigation_path: /homekit-infused/home
-              hold_action: # 保持单击/点击
+              hold_action: # 保持单击/点击 | 长按
                 action: more-info
               double_tap_action: # 双击
                 action: more-info
@@ -605,7 +605,7 @@ views: # NEVER REMOVE THIS LINE
               lock: true # 锁定 需要点击一次 进行解锁
               tap_action: # 单击 默认是 toggle
                 action: none
-              hold_action: # 保持单击/点击
+              hold_action: # 保持单击/点击 | 长按
                 action: more-info
               double_tap_action: # 双击
                 action: more-info
@@ -670,20 +670,190 @@ views: # NEVER REMOVE THIS LINE
               entity: climate.miotir_cloud_168640
               name: Faker空调3
               theme: HKI Default
+
   # ================================================================================================================================================================
-  # TODO2
+  # 设备控制 | 包含 插座控制 风扇控制 | 等一系列主要功能只有开与关操作(也有特殊的 比如智能风扇可调风速等)的智能设备
+  # 当前 just for 智能开关 智能插座
+  # Devices | switch
+  devices_switch:
+    title: 插座控制
+    show_in_navbar: false
+    show_in_menu: true
+    show_in_favorites: true
+    subtitle: "[[[ if (states['sensor.current_devices_on'].state == 0) return `设备(插座)均已关闭。`;
+    if (states['sensor.current_devices_on'].state == 1) return `有一个设备(插座)打开。`;
+    else return `当前有 ${states['sensor.current_devices_on'].state} 个设备(插座)开启。`; ]]]"
+    columns:
+      buttons: 3
+      view_selector: 2
+    icon: mdi:power-plug
+    button_badge: sensor.current_devices_on
+    button_label: "[[[ if (states['sensor.current_devices_on'].state == 0) return `设备(插座)均已关闭`; else return `有${states['sensor.current_devices_on'].state} 个设备(插座)打开`; ]]]"
+    layout:
+      layout_type: custom:horizontal-layout
+      options:
+        - max_cols: 3
+          max_width: 500
+          width: 300
+    addons:
+      button:
+        - title: 卧室
+          entities:
+            - entity: switch.212a01_cloud_194002
+              name: 小开关
+              icon: mdi:power-plug
+              lock: true # 锁定 需要点击一次 进行解锁
+              tap_action: # 单击 默认是 toggle | none 代表无操作
+                action: toggle
+              hold_action: # 保持单击/点击 | 长按
+                action: more-info
+              double_tap_action: # 双击
+                action: more-info
+            - entity: switch.212a01_cloud_194002
+              icon: mdi:power-plug
+        - title: 其他区域
+          entities:
+            - entity: switch.212a01_cloud_194002
+              name: Faker插座
+              icon: mdi:power-plug
+              lock: true # 锁定 需要点击一次 进行解锁
+            - entity: switch.212a01_cloud_194002
+              name: Faker插座2
+              icon: mdi:power-plug
+              lock: true # 锁定 需要点击一次 进行解锁
+            - entity: switch.212a01_cloud_194002
+              name: Faker插座3
+              icon: mdi:power-plug
+              button_label: "[[[ return entity.state; ]]]" # 默认就是这个 | 还有 若 action 没配置 单击是 toggle | 双击和长按 是显示弹框开关 右下角有 Settings 可查看 more-info 属性
+            - entity: switch.212a01_cloud_194002
+              icon: mdi:power-plug
+
+  # ================================================================================================================================================================
+  # 设备控制 | 包含 插座控制 风扇控制 | 等一系列主要功能只有开与关操作(也有特殊的 比如智能风扇可调风速等)的智能设备
+  # 当前 just for 智能风扇
+  # Devices | fan
+  devices_fan:
+    title: 风扇控制
+    show_in_navbar: false
+    show_in_menu: true
+    show_in_favorites: true
+    subtitle: "[[[ if (states['sensor.current_devices_on'].state == 0) return `设备(风扇)均已关闭。`;
+    if (states['sensor.current_devices_on'].state == 1) return `有一个设备(风扇)打开。`;
+    else return `当前有 ${states['sensor.current_devices_on'].state} 个设备(风扇)开启。`; ]]]"
+    columns:
+      buttons: 3
+      view_selector: 2
+    icon: mdi:fan
+    button_badge: sensor.current_devices_on
+    button_label: "[[[ if (states['sensor.current_devices_on'].state == 0) return `设备(风扇)均已关闭`; else return `有${states['sensor.current_devices_on'].state} 个设备(风扇)打开`; ]]]"
+    layout:
+      layout_type: custom:horizontal-layout
+      options:
+        - max_cols: 3
+          max_width: 500
+          width: 300
+    addons:
+      button:
+        - title: 主卧
+          entities:
+            - entity: switch.212a01_cloud_194002
+              name: 小风扇
+              icon: mdi:fan
+              lock: true # 锁定 需要点击一次 进行解锁
+              tap_action: # 单击 默认是 toggle | none 代表无操作
+                action: toggle
+              hold_action: # 保持单击/点击 | 长按
+                action: more-info
+              double_tap_action: # 双击
+                action: more-info
+            - entity: switch.212a01_cloud_194002
+              name: 小风扇2
+              icon: mdi:fan
+        - title: 次卧
+          entities:
+            - entity: switch.212a01_cloud_194002
+              name: 小风扇
+              icon: mdi:fan
+              lock: true # 锁定 需要点击一次 进行解锁
+              tap_action: # 单击 默认是 toggle | none 代表无操作
+                action: toggle
+              hold_action: # 保持单击/点击 | 长按
+                action: more-info
+              double_tap_action: # 双击
+                action: more-info
+            - entity: switch.212a01_cloud_194002
+              name: 小风扇2
+              icon: mdi:fan
+        - title: 客厅
+          entities:
+            - entity: switch.212a01_cloud_194002
+              name: 小风扇
+              icon: mdi:fan
+              lock: true # 锁定 需要点击一次 进行解锁
+              tap_action: # 单击 默认是 toggle | none 代表无操作
+                action: toggle
+              hold_action: # 保持单击/点击 | 长按
+                action: more-info
+              double_tap_action: # 双击
+                action: more-info
+            - entity: switch.212a01_cloud_194002
+              name: 小风扇2
+              icon: mdi:fan
+        - title: 其他区域
+          entities:
+            - entity: switch.212a01_cloud_194002
+              name: Faker风扇
+              icon: mdi:fan
+              lock: true # 锁定 需要点击一次 进行解锁
+            - entity: switch.212a01_cloud_194002
+              name: Faker风扇2
+              icon: mdi:fan
+              lock: true # 锁定 需要点击一次 进行解锁
+            - entity: switch.212a01_cloud_194002
+              name: Faker风扇3
+              icon: mdi:fan
+              button_label: "[[[ return entity.state; ]]]" # 默认就是这个 | 还有 若 action 没配置 单击是 toggle | 双击和长按 是显示弹框开关 右下角有 Settings 可查看 more-info 属性
+            - entity: switch.212a01_cloud_194002
+              name: Faker风扇4
+              icon: mdi:fan
+      custom:
+        - title: 风扇蘑菇样式 # 此 action | tap_action | hold_action | double_tap_action 使用了默认配置 也可自定义
+          view_layout:
+            column: 1
+          cards:
+            - type: custom:mushroom-fan-card
+              entity: switch.212a01_cloud_194002
+              name: 小风扇
+              fill_container: true
+              icon_animation: true
+              icon: mdi:fan
+              show_percentage_control: true
+              show_oscillate_control: true
+              collapsible_controls: true
+            - type: custom:mushroom-fan-card
+              entity: switch.212a01_cloud_194002
+              name: 小风扇2
+              fill_container: true
+              icon_animation: true
+              icon: mdi:fan
+              show_percentage_control: true
+              show_oscillate_control: true
+              collapsible_controls: true
+
+  # ================================================================================================================================================================
+  # TODO
   # 其他待做
 
   # ================================================================================================================================================================
-  # TODO3
+  # TODO
   # 其他待做
 
   # ================================================================================================================================================================
-  # TODO4
+  # TODO
   # 其他待做
 
   # ================================================================================================================================================================
-  # TODO5
+  # TODO
   # 其他待做
 
   # ================================================================================================================================================================
