@@ -145,6 +145,12 @@ https://github.com/piitaya/lovelace-mushroom/blob/main/docs/cards/fan.md
 homekit-infused/08.media.yaml at 5.x.x-personal · jimz011/homekit-infused · GitHub | jimz011 多媒体控制源码
 https://github.com/jimz011/homekit-infused/blob/5.x.x-personal/hki-user/views/08.media.yaml
 
+lovelace-mushroom/media-player.md at main · piitaya/lovelace-mushroom · GitHub | lovelace-mushroom 中的多媒体控制配置说明
+https://github.com/piitaya/lovelace-mushroom/blob/main/docs/cards/media-player.md
+
+lovelace-mushroom/media-player-view.yaml at main · piitaya/lovelace-mushroom · GitHub | lovelace-mushroom 中的多媒体控制配置源码栗子
+https://github.com/piitaya/lovelace-mushroom/blob/main/.hass_dev/views/media-player-view.yaml
+
 Enjoy...
 
 ===========================================================================================
