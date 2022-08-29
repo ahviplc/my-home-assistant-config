@@ -127,7 +127,7 @@ https://jimz011.github.io/homekit-infused/addons/custom.html
 Homekit Infused 5 | Homekit Infused 5 2022 | addons 插件 所有的插件类型 均可配置条件 conditional | conditions (满足条件才可以显示此具体插件)
 https://jimz011.github.io/homekit-infused/addons.html
 
-Homekit Infused 5 | Homekit Infused 5 2022 | button 按钮配置说明
+Homekit Infused 5 | Homekit Infused 5 2022 | button 按钮配置说明 其中配置项 type: color-temp | rgb | cover | switch | graph | sensor | fan 默认为 auto | 默认情况下，HKI 会尝试自行判断按钮的类型，但如果它弄错了，则通过设置类型来强制它
 https://jimz011.github.io/homekit-infused/addons/button.html
 
 GitHub - custom-cards/button-card: ❇️ Lovelace button-card for home assistant | 其 tap_action | hold_action | double_tap_action >【more-info, toggle, call-service, none, navigate, url】动作的具体配置说明
@@ -190,7 +190,7 @@ https://ha.jiluxinqing.com/#/install_pip
 MDI图标
 https://ha.jiluxinqing.com/#/website_icon
 
-MDI图标预览
+MDI图标预览 | 只有MDI图标
 https://unpkg.com/@mdi/font@5.3.45/preview.html
 
 MDI图标源码地址
@@ -201,6 +201,21 @@ https://github.com/shaonianzhentan/ha_file_explorer
 
 GitHub - shaonianzhentan/ha-extension: HomeAssistant浏览器扩展
 https://github.com/shaonianzhentan/ha-extension
+
+icones - 图标搜索 支持多个图标库 | 推荐
+https://icones.js.org/
+
+GitHub - ⚡️Icon Explorer with Instant searching, powered by Iconify
+https://github.com/antfu/icones
+
+Iconify - 图标搜索 支持多个图标库 | 推荐
+https://iconify.design/
+
+iconify/iconify: Universal icon framework. One syntax for FontAwesome, Material Design Icons, DashIcons, Feather Icons, EmojiOne, Noto Emoji and many other open source icon sets (100+ icon sets, 100,000+ icons). SVG framework, React, Vue and Svelte components!
+https://github.com/iconify/iconify
+
+iconify/icon-sets: 100+ open source icon sets. Icons are validated, cleaned up, optimised, ready to render as SVG. Updated automatically 3 times a week.
+https://github.com/iconify/icon-sets
 ```
 
 ## HA与Node-RED的搭配

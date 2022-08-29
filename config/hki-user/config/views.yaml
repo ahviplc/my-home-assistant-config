@@ -43,7 +43,9 @@ views: # NEVER REMOVE THIS LINE
   # ===================================================
   # subtitle: "[[[ if (states['sensor.current_lights_on'].state == 0) return `All lights are turned off`; if (states['sensor.current_lights_on'].state == 1) return `1 light is turned on`; else return `${states['sensor.current_lights_on'].state} lights are turned on`; ]]]"
   # ===================================================
-  # type: color-temp | rgb | cover | switch | graph
+  # 按钮选项 Button Options
+  # type: color-temp | rgb | cover | switch | graph | sensor | fan 默认为 auto
+  # 默认情况下，HKI 会尝试自行判断按钮的类型，但如果它弄错了，则通过设置类型来强制它
   # ===================================================
   # Lights (example)
   lights:
