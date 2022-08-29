@@ -70,42 +70,59 @@ views: # NEVER REMOVE THIS LINE
       button:
         - title: 厨房
           entities:
-            - entity: switch.212a01_cloud_194002
-              type: cover
+            - entity: light.mbulb3_cloud_447351
+              icon: mdi:lightbulb
+              type: color-temp
         - title: 客厅
           entities:
             - entity: switch.212a01_cloud_873391
               name: 客厅沙发灯
-            - entity: switch.212a01_cloud_873391
-            - entity: switch.212a01_cloud_873391
+              icon: mdi:ceiling-light
+            - entity: light.mbulb3_cloud_447351
+              icon: mdi:lightbulb
+            - entity: light.mbulb3_cloud_447351
+              icon: mdi:lightbulb
         - title: 餐厅
           entities:
-            - entity: switch.212a01_cloud_194002
-            - entity: switch.212a01_cloud_194002
+            - entity: light.mbulb3_cloud_447351
+              icon: mdi:lightbulb
+            - entity: light.mbulb3_cloud_447351
+              icon: mdi:lightbulb
         - title: 门厅&过道
           entities:
-            - entity: switch.212a01_cloud_194002
-            - entity: switch.212a01_cloud_194002
-            - entity: switch.212a01_cloud_194002
-            - entity: switch.212a01_cloud_194002
-            - entity: switch.212a01_cloud_194002
-            - entity: switch.212a01_cloud_194002
+            - entity: light.mbulb3_cloud_447351
+              icon: mdi:lightbulb
+            - entity: light.mbulb3_cloud_447351
+              icon: mdi:lightbulb
+            - entity: light.mbulb3_cloud_447351
+              icon: mdi:lightbulb
+            - entity: light.mbulb3_cloud_447351
+              icon: mdi:lightbulb
+            - entity: light.mbulb3_cloud_447351
+              icon: mdi:lightbulb
+            - entity: light.mbulb3_cloud_447351
+              icon: mdi:lightbulb
         - title: 主卧
           entities:
-            - entity: switch.212a01_cloud_194002
+            - entity: light.mbulb3_cloud_447351
+              icon: mdi:lightbulb
         - title: 次卧
           entities:
-            - entity: switch.212a01_cloud_194002
+            - entity: light.mbulb3_cloud_447351
+              icon: mdi:lightbulb
         - title: 儿童房台灯
           entities:
-            - entity: switch.212a01_cloud_194002
+            - entity: light.mbulb3_cloud_447351
+              icon: mdi:lightbulb
         - title: 洗手间
           entities:
-            - entity: switch.212a01_cloud_194002
+            - entity: light.mbulb3_cloud_447351
+              icon: mdi:lightbulb
         - title: 阳台
           entities:
-            - entity: switch.212a01_cloud_194002
-              name: 阳台Faker灯-小开关
+            - entity: light.mbulb3_cloud_447351
+              name: 阳台Faker灯-小夜灯泡
+              icon: mdi:lightbulb
       custom:
         - title: 其他区域
           view_layout:
@@ -114,42 +131,48 @@ views: # NEVER REMOVE THIS LINE
             - type: horizontal-stack
               cards:
                 - type: custom:mushroom-light-card
-                  entity: switch.212a01_cloud_194002
+                  entity: light.mbulb3_cloud_447351
                   layout: vertical
                   fill_container: true
-                  name: Faker小开关
-                  collapsible_controls: true
-                  show_brightness_control: true
-                  use_light_color: true
-                  show_color_temp_control: true
-                  show_color_control: true
+                  name: Faker小夜灯泡
+                  icon: mdi:lightbulb
+                  collapsible_controls: false
+                  show_brightness_control: false
+                  use_light_color: false
+                  show_color_temp_control: false
+                  show_color_control: false
                 - type: custom:mushroom-light-card
-                  entity: switch.212a01_cloud_194002
+                  entity: light.mbulb3_cloud_447351
                   fill_container: true
                   layout: vertical
-                  name: 小开关
+                  name: 小夜灯泡
+                  icon: mdi:lightbulb
                 - type: custom:mushroom-light-card
-                  entity: switch.212a01_cloud_194002
+                  entity: light.mbulb3_cloud_447351
                   fill_container: true
                   layout: vertical
-                  name: 小开关
+                  name: 小夜灯泡
+                  icon: mdi:lightbulb
                 - type: custom:mushroom-light-card
-                  entity: switch.212a01_cloud_194002
+                  entity: light.mbulb3_cloud_447351
                   fill_container: true
                   layout: vertical
-                  name: 小开关
+                  name: 小夜灯泡
+                  icon: mdi:lightbulb
                 - type: custom:mushroom-light-card
-                  entity: switch.212a01_cloud_194002
+                  entity: light.mbulb3_cloud_447351
                   use_light_color: false
                   fill_container: true
                   collapsible_controls: false
                   layout: vertical
-                  name: 小开关
+                  name: 小夜灯泡
+                  icon: mdi:lightbulb
             - type: vertical-stack
               cards:
                 - type: custom:mushroom-light-card
-                  entity: switch.212a01_cloud_194002
-                  name: 小开关
+                  entity: light.mbulb3_cloud_447351
+                  name: 小夜灯泡
+                  icon: mdi:lightbulb
                   fill_container: true
                   use_light_color: true
                   show_color_temp_control: true
@@ -157,11 +180,12 @@ views: # NEVER REMOVE THIS LINE
                   show_brightness_control: true
                   collapsible_controls: true
                 - type: custom:mushroom-light-card
-                  entity: switch.212a01_cloud_194002
-                  name: Faker小开关
+                  entity: light.mbulb3_cloud_447351
+                  name: Faker小夜灯泡
                 - type: custom:mushroom-light-card
-                  entity: switch.212a01_cloud_194002
-                  name: 小开关
+                  entity: light.mbulb3_cloud_447351
+                  name: 小夜灯泡
+                  icon: mdi:lightbulb
                   fill_container: false
         - title: 其他区域2
           view_layout:
@@ -170,42 +194,48 @@ views: # NEVER REMOVE THIS LINE
             - type: horizontal-stack
               cards:
                 - type: custom:mushroom-light-card
-                  entity: switch.212a01_cloud_194002
+                  entity: light.mbulb3_cloud_447351
                   layout: vertical
                   fill_container: true
-                  name: Faker小开关
-                  collapsible_controls: true
-                  show_brightness_control: true
-                  use_light_color: true
-                  show_color_temp_control: true
-                  show_color_control: true
+                  name: Faker小夜灯泡
+                  icon: mdi:lightbulb
+                  collapsible_controls: false
+                  show_brightness_control: false
+                  use_light_color: false
+                  show_color_temp_control: false
+                  show_color_control: false
                 - type: custom:mushroom-light-card
-                  entity: switch.212a01_cloud_194002
+                  entity: light.mbulb3_cloud_447351
                   fill_container: true
                   layout: vertical
-                  name: 小开关
+                  name: 小夜灯泡
+                  icon: mdi:lightbulb
                 - type: custom:mushroom-light-card
-                  entity: switch.212a01_cloud_194002
+                  entity: light.mbulb3_cloud_447351
                   fill_container: true
                   layout: vertical
-                  name: 小开关
+                  name: 小夜灯泡
+                  icon: mdi:lightbulb
                 - type: custom:mushroom-light-card
-                  entity: switch.212a01_cloud_194002
+                  entity: light.mbulb3_cloud_447351
                   fill_container: true
                   layout: vertical
-                  name: 小开关
+                  name: 小夜灯泡
+                  icon: mdi:lightbulb
                 - type: custom:mushroom-light-card
-                  entity: switch.212a01_cloud_194002
+                  entity: light.mbulb3_cloud_447351
                   use_light_color: false
                   fill_container: true
                   collapsible_controls: false
                   layout: vertical
-                  name: 小开关
+                  name: 小夜灯泡
+                  icon: mdi:lightbulb
             - type: vertical-stack
               cards:
                 - type: custom:mushroom-light-card
-                  entity: switch.212a01_cloud_194002
-                  name: 小开关
+                  entity: light.mbulb3_cloud_447351
+                  name: 小夜灯泡
+                  icon: mdi:lightbulb
                   fill_container: true
                   use_light_color: true
                   show_color_temp_control: true
@@ -213,11 +243,13 @@ views: # NEVER REMOVE THIS LINE
                   show_brightness_control: true
                   collapsible_controls: true
                 - type: custom:mushroom-light-card
-                  entity: switch.212a01_cloud_194002
-                  name: Faker小开关
+                  entity: light.mbulb3_cloud_447351
+                  name: Faker小夜灯泡
+                  icon: mdi:lightbulb
                 - type: custom:mushroom-light-card
-                  entity: switch.212a01_cloud_194002
-                  name: 小开关
+                  entity: light.mbulb3_cloud_447351
+                  name: 小夜灯泡
+                  icon: mdi:lightbulb
                   fill_container: false
 
   # ================================================================================================================================================================

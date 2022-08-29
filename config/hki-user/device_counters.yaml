@@ -45,12 +45,12 @@ all_binary_sensor_entities:
   entities:
     - sensor.dw2hl_cloud_t85c00
 
-# All Lights
+# All Lights、
+# light.mbulb3_cloud_447351 这是 Faker小夜灯泡
 all_light_entities:
   # name: 所有灯
   entities:
-    - switch.212a01_cloud_873391
-    - switch.212a01_cloud_194002
+    - light.mbulb3_cloud_447351
 
 # All Devices
 all_device_switch_entities:
@@ -106,7 +106,9 @@ all_person:
     - person.lc
 
 # All Entities # Put ALL of the above entities in here to get the most out of HKI on mobile phones
-# switch.212a01_cloud_194002 这是 Faker灯 小开关
+# switch.212a01_cloud_873391 这是 客厅沙发灯
+# switch.212a01_cloud_194002 这是 Faker Switch 小开关
+# light.mbulb3_cloud_447351 这是 Faker小夜灯泡
 all_entities:
   entities:
     - sensor.t2_cloud_c0lo00
@@ -116,3 +118,4 @@ all_entities:
     - switch.212a01_cloud_194002
     - media_player.android_tv_192_168_5_84
     - climate.miotir_cloud_168640
+    - light.mbulb3_cloud_447351
