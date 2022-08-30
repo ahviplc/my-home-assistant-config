@@ -178,6 +178,12 @@ https://gitee.com/shaonianzhentan/ha-docs
 GitHub - shaonianzhentan/ha-docs: HomeAssistant学习笔记
 https://github.com/shaonianzhentan/ha-docs
 
+GitHub - shaonianzhentan/ha_file_explorer: 在HA里使用的文件管理器
+https://github.com/shaonianzhentan/ha_file_explorer
+
+GitHub - shaonianzhentan/ha-extension: HomeAssistant浏览器扩展
+https://github.com/shaonianzhentan/ha-extension
+
 卡片集合
 https://ha.jiluxinqing.com/#/plug_dev_card
 
@@ -190,25 +196,28 @@ https://ha.jiluxinqing.com/#/install_pip
 MDI图标
 https://ha.jiluxinqing.com/#/website_icon
 
-MDI图标预览 | 只有MDI图标
+MDI图标预览 | 只有MDI图标 | unpkg.com加速的预览页
 https://unpkg.com/@mdi/font@5.3.45/preview.html
 
-MDI图标源码地址
+@mdi/font - npm
+https://www.npmjs.com/package/@mdi/font
+
+@mdi/font - MDI图标源码地址
 https://github.com/Templarian/MaterialDesign-Webfont
 
-GitHub - shaonianzhentan/ha_file_explorer: 在HA里使用的文件管理器
-https://github.com/shaonianzhentan/ha_file_explorer
+Material Design Icons | 只有MDI图标 | 官网
+https://materialdesignicons.com/
 
-GitHub - shaonianzhentan/ha-extension: HomeAssistant浏览器扩展
-https://github.com/shaonianzhentan/ha-extension
+GitHub - Templarian/MaterialDesign: ✒7000+ Material Design Icons from the Community
+https://github.com/Templarian/MaterialDesign
 
-icones - 图标搜索 支持多个图标库 | 推荐
+icones - 图标搜索 支持多个图标库 | 推荐 666
 https://icones.js.org/
 
 GitHub - ⚡️Icon Explorer with Instant searching, powered by Iconify
 https://github.com/antfu/icones
 
-Iconify - 图标搜索 支持多个图标库 | 推荐
+Iconify - 图标搜索 支持多个图标库 | 推荐 6
 https://iconify.design/
 
 iconify/iconify: Universal icon framework. One syntax for FontAwesome, Material Design Icons, DashIcons, Feather Icons, EmojiOne, Noto Emoji and many other open source icon sets (100+ icon sets, 100,000+ icons). SVG framework, React, Vue and Svelte components!

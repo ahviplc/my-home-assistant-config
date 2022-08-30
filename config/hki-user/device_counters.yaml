@@ -45,7 +45,7 @@ all_binary_sensor_entities:
   entities:
     - sensor.dw2hl_cloud_t85c00
 
-# All Lights、
+# All Lights
 # light.mbulb3_cloud_447351 这是 Faker小夜灯泡
 all_light_entities:
   # name: 所有灯
@@ -53,12 +53,12 @@ all_light_entities:
     - light.mbulb3_cloud_447351
 
 # All Devices
+# 所有插座 风扇 等 开关设备
 all_device_switch_entities:
-  # name: 所有插座
+  # name: 所有开关设备
   entities:
     - switch.212a01_cloud_873391
     - switch.212a01_cloud_194002
-    - media_player.android_tv_192_168_5_84
 
 # All Covers
 all_cover_entities:
