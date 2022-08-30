@@ -151,6 +151,12 @@ https://github.com/piitaya/lovelace-mushroom/blob/main/docs/cards/media-player.m
 lovelace-mushroom/media-player-view.yaml at main · piitaya/lovelace-mushroom · GitHub | lovelace-mushroom 中的多媒体控制配置源码栗子
 https://github.com/piitaya/lovelace-mushroom/blob/main/.hass_dev/views/media-player-view.yaml
 
+lovelace-mushroom/chips.md at main · piitaya/lovelace-mushroom · GitHub | lovelace-mushroom 中的碎片chips卡片的配置说明
+https://github.com/piitaya/lovelace-mushroom/blob/main/docs/cards/chips.md
+
+lovelace-mushroom/chips-view.yaml at main · piitaya/lovelace-mushroom · GitHub  | lovelace-mushroom 中的碎片chips卡片的配置源码栗子
+https://github.com/piitaya/lovelace-mushroom/blob/main/.hass_dev/views/chips-view.yaml
+
 Enjoy...
 
 ===========================================================================================

@@ -708,7 +708,133 @@ views: # NEVER REMOVE THIS LINE
       type: default
     addons:
       custom:
+        - title: 快捷键
+          type: vertical-stack
+          cards:
+            - type: custom:mushroom-chips-card
+              chips:
+                - type: back
+                - type: action
+                  icon: mdi:home
+                  tap_action:
+                    action: navigate
+                    navigation_path: /lovelace/default_view
+                  hold_action:
+                    action: none
+                  double_tap_action:
+                    action: none
+                - type: action
+                  icon: mdi:github
+                  tap_action:
+                    action: url
+                    url_path: https://github.com/piitaya/lovelace-mushroom
+                  hold_action:
+                    action: none
+                  double_tap_action:
+                    action: none
+            - type: custom:mushroom-chips-card
+              chips:
+                - type: action
+                  icon: mdi:snowflake
+                  tap_action:
+                    action: call-service
+                    service: xiaomi_miot_raw.execute_text
+                    data:
+                      silent: true
+                      entity_id: media_player.l05c_cloud_249900
+                      text: 开冷空调
+                    target: {} # 可通过 entity_id | device_id 用于指定对个设备 具体使用格式见 概览源码
+                  hold_action:
+                    action: none
+                  double_tap_action:
+                    action: none
+                - type: action
+                  icon: mdi:power-on
+                  tap_action:
+                    action: call-service
+                    service: xiaomi_miot_raw.execute_text
+                    data:
+                      silent: true
+                      entity_id: media_player.l05c_cloud_249900
+                      text: 打开空调
+                    target: {}
+                  hold_action:
+                    action: none
+                  double_tap_action:
+                    action: none
+                - type: action
+                  icon: mdi:power-off
+                  tap_action:
+                    action: call-service
+                    service: xiaomi_miot_raw.execute_text
+                    data:
+                      silent: true
+                      entity_id: media_player.l05c_cloud_249900
+                      text: 关闭空调
+                    target: {}
+                  hold_action:
+                    action: none
+                  double_tap_action:
+                    action: none
+            - type: custom:mushroom-chips-card
+              chips:
+                - type: entity
+                  entity: climate.miotir_cloud_168640
+                  name: 开冷空调
+                  content_info: name
+                  icon: mdi:snowflake
+                  use_entity_picture: false
+                  tap_action:
+                    action: call-service
+                    service: xiaomi_miot_raw.execute_text
+                    data:
+                      silent: true
+                      entity_id: media_player.l05c_cloud_249900
+                      text: 开冷空调
+                    target: {}
+                  hold_action:
+                    action: more-info
+                  double_tap_action:
+                    action: more-info
+                - type: entity
+                  entity: climate.miotir_cloud_168640
+                  name: 打开空调
+                  content_info: name
+                  icon: mdi:power-on
+                  use_entity_picture: false
+                  tap_action:
+                    action: call-service
+                    service: xiaomi_miot_raw.execute_text
+                    data:
+                      silent: true
+                      entity_id: media_player.l05c_cloud_249900
+                      text: 打开空调
+                    target: {}
+                  hold_action:
+                    action: more-info
+                  double_tap_action:
+                    action: more-info
+                - type: entity
+                  entity: climate.miotir_cloud_168640
+                  name: 关闭空调
+                  content_info: name
+                  icon: mdi:power-off
+                  use_entity_picture: false
+                  tap_action:
+                    action: call-service
+                    service: xiaomi_miot_raw.execute_text
+                    data:
+                      silent: true
+                      entity_id: media_player.l05c_cloud_249900
+                      text: 关闭空调
+                    target: {}
+                  hold_action:
+                    action: more-info
+                  double_tap_action:
+                    action: more-info
         - title: Faker空调
+          view_layout: # 移到ui最左边
+            column: 1
           cards:
             - type: custom:mushroom-climate-card
               entity: climate.miotir_cloud_168640
