@@ -80,8 +80,20 @@ views: # NEVER REMOVE THIS LINE
             - entity: switch.212a01_cloud_873391
               name: 客厅沙发灯
               icon: mdi:ceiling-light
+              lock: true # 锁定 需要点击一次 进行解锁
+            - entity: light.mbulb3_cloud_447351
+              name: Faker小夜灯泡
+              icon: mdi:lightbulb
+              lock: true # 锁定 需要点击一次 进行解锁
+              tap_action: # 单击 默认是 toggle | none 代表无操作
+                action: toggle
+              hold_action: # 保持单击/点击 | 长按
+                action: more-info
+              double_tap_action: # 双击
+                action: more-info
             - entity: light.mbulb3_cloud_447351
               icon: mdi:lightbulb
+              lock: true # 锁定 需要点击一次 进行解锁
             - entity: light.mbulb3_cloud_447351
               icon: mdi:lightbulb
         - title: 餐厅

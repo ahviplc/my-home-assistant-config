@@ -280,6 +280,32 @@ GitHub - zachowj/hass-node-red: Companion Component for node-red-contrib-home-as
 https://github.com/zachowj/hass-node-red
 ```
 
+## HA中的 `call-service` 模板
+
+> HA中的 `call-service`
+
+` 调用服务` | `空调按钮 开冷空调` | 原始HA调用模板
+
+```yaml
+service: xiaomi_miot_raw.execute_text
+data:
+silent: true
+entity_id: media_player.l05c_cloud_249900
+text: 开冷空调
+```
+
+` 调用服务` | `推送通知消息到HA的app上的服务` | 可优先使用 蘑菇 Action chip 卡片
+
+```yaml
+- type: action
+    icon: mdi:bell
+    tap_action:
+      action: call-service
+      service: notify.persistent_notification # 这个是推送通知消息到HA的app上的服务
+      service_data:
+        message: This is notification from mushroom dashboard
+```
+
 ## 一些技巧
 
 ```markdown
