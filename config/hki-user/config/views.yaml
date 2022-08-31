@@ -332,18 +332,66 @@ views: # NEVER REMOVE THIS LINE
       position: top
       type: default
     addons:
-      weather:
-        - title: 天气预报
-          type: core
-          entity: weather.lcde_jia
-          show_forecast: true
-          path: weather
       custom:
+        - title: 快捷键
+          type: vertical-stack
+          cards:
+            - type: custom:mushroom-chips-card
+              chips:
+                - type: back
+                - type: action
+                  icon: mdi:home
+                  tap_action:
+                    action: navigate
+                    navigation_path: /lovelace/default_view
+                  hold_action:
+                    action: none
+                  double_tap_action:
+                    action: none
+                - type: action
+                  icon: mdi:github
+                  tap_action:
+                    action: url
+                    url_path: https://github.com/piitaya/lovelace-mushroom
+                  hold_action:
+                    action: none
+                  double_tap_action:
+                    action: none
+            - type: custom:mushroom-chips-card
+              chips:
+                - type: entity
+                  entity: weather.lcde_jia
+                  name: 天气预报
+                  content_info: name
+                  icon: mdi:weather-cloudy
+                  use_entity_picture: false
+                  tap_action:
+                    action: call-service
+                    service: xiaomi_miot_raw.execute_text
+                    data:
+                      silent: true
+                      entity_id: media_player.l05c_cloud_249900
+                      text: 天气预报
+                    target: {}
+                  hold_action:
+                    action: more-info
+                  double_tap_action:
+                    action: more-info
         - title: 天气预报2
+          view_layout: # 移到ui最左边
+            column: 1
           cards:
             - type: custom:weather-card
               entity: weather.lcde_jia
               number_of_forecasts: '5'
+      weather:
+        - title: 天气预报
+          view_layout: # 移到ui最左边
+            column: 1
+          type: core
+          entity: weather.lcde_jia
+          show_forecast: true
+          path: weather
 
   # ================================================================================================================================================================
   # 气候 使用了 sensor传感器 插件
