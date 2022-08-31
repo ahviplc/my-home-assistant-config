@@ -735,7 +735,7 @@ views: # NEVER REMOVE THIS LINE
               button_badge: sensor.shang_hai_gong_jiao_ka
               # button_label: "[[[ return `一些公交卡`; ]]]"
               # show_last_changed: true
-              label: "[[[ return `卡号:` + entity.attributes.cardno; ]]]" # 写法2 获取属性 attributes 这个拼接自定义字符串的写法和 line 552 的均可使用
+              label: "[[[ return `卡号:` + entity.attributes.cardno; ]]]" # 写法2 获取属性 attributes 这个拼接自定义字符串的写法和 line 708 的均可使用
               lock: true # 锁定 需要点击一次 进行解锁
               tap_action: # 单击 默认是 toggle
                 action: none

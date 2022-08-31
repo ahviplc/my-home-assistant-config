@@ -157,6 +157,9 @@ https://github.com/piitaya/lovelace-mushroom/blob/main/docs/cards/chips.md
 lovelace-mushroom/chips-view.yaml at main · piitaya/lovelace-mushroom · GitHub  | lovelace-mushroom 中的碎片chips卡片的配置源码栗子
 https://github.com/piitaya/lovelace-mushroom/blob/main/.hass_dev/views/chips-view.yaml
 
+homekit-infused/notifications.yaml at 5.x.x-personal · jimz011/homekit-infused · GitHub | jimz011 通知 作者个人使用源码
+https://github.com/jimz011/homekit-infused/blob/5.x.x-personal/hki-user/notifications.yaml
+
 Enjoy...
 
 ===========================================================================================
